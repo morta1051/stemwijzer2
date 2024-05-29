@@ -23,6 +23,7 @@
         <li><a href="partijen.php">Partijeen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
+        <li><a href="stellingen.php">Stellingen</a></li>
     </ul>
 </nav>
 <div class="background-image"></div>
