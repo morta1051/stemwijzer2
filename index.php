@@ -20,7 +20,7 @@
 <nav>
     <ul>
         <li><a class="active" href="index.php">Home</a></li>
-        <li><a href="partijen.php">Partijeen</a></li>
+        <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
     </ul>
