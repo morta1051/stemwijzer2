@@ -30,11 +30,11 @@
     </ul>
 </nav>
 <?php
-   // foreach ($dbHandler->selectPartijen() as $partij) {
-     //   echo "<h2>" . $partij["partijID"] . "</h2>";
-       // echo "<p>" . $partij["partijen"] . "</p>";
+    foreach ($dbHandler->selectPartijen() as $partij) {
+        echo "<h2>" . $partij["partijID"] . "</h2>";
+        echo "<p>" . $partij["partijen"] . "</p>";
 
-    //}
+    }
     ?>
 </body>
 </html>

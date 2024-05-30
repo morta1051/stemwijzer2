@@ -12,7 +12,6 @@
 </head>
 <body>
     <?php
-    
     include_once "dbhandler.php";
     $dbHandler = new dbHandler();
     ?>
@@ -31,10 +30,10 @@
 </nav>
 
 <?php
-   // foreach ($dbHandler->selectStellingen() as $partij) {
-      //  echo "<h2>" . $partij["stellingID"] . "</h2>";
-        //echo "<p>" . $partij["stellingen"] . "</p>";
-    //}
+    foreach ($dbHandler->selectStellingen() as $partij) {
+       echo "<p>" . $partij["stellingID"] . "</p>";
+       echo "<p>" . $partij["stellingen"] . "</p>";
+    }
     ?>
 </body>
 </html>
