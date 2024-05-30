@@ -34,7 +34,10 @@
     <?php
     foreach ($dbHandler->selectPartijen() as $partij) {
         echo "<div class='partij'>";
-        echo "<h2><a href='partij.php?id=" . $partij["partijID"] . "'>" . $partij["partijID"] . "</a></h2>";
+        ?>
+        <img class="banner" src="img/pvv.jpg" alt="<?php echo $partij["partijen"] ?>">
+        <?php
+        echo "<h2>" . $partij["partijID"] . "</h2>";
         echo "<p>" . $partij["partijen"] . "</p>";
         echo "</div>";
     }
