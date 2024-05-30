@@ -29,12 +29,16 @@
         <li><a href="stellingen.php">Stellingen</a></li>
     </ul>
 </nav>
-<?php
-    foreach ($dbHandler->selectPartijen() as $partij) {
-        echo "<h2>" . $partij["partijID"] . "</h2>";
-        echo "<p>" . $partij["partijen"] . "</p>";
 
+<div class="partijen-container">
+    <?php
+    foreach ($dbHandler->selectPartijen() as $partij) {
+        echo "<div class='partij'>";
+        echo "<h2><a href='partij.php?id=" . $partij["partijID"] . "'>" . $partij["partijID"] . "</a></h2>";
+        echo "<p>" . $partij["partijen"] . "</p>";
+        echo "</div>";
     }
     ?>
+</div>
 </body>
 </html>
