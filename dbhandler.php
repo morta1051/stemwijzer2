@@ -63,7 +63,31 @@ final class dbHandler
         }
     }
 
+    function getPartyById($partyId)
+    {
+        $pdo = $this->connect();
+        if ($pdo) {
+            $statement = $pdo->prepare("SELECT * FROM partijen WHERE partijID = :partijID");
+            $statement->bindParam(":partijID", $partyId);
+            $statement->execute();
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return null;
+        }
+    }
 
+    public function standpuntenpartijen($partijID)
+    {
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("SELECT * FROM standpuntenpartijen sp INNER JOIN standpunten s ON sp.standpuntID = s.standpuntID WHERE sp.partijID = :partijID");
+            $statement->bindParam(":partijID", $partijID);
+            $statement->execute();
+            return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $exception) {
+            return false;
+        }
+    }
     
 
 }

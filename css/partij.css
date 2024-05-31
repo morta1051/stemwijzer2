@@ -1,0 +1,63 @@
+
+.partijSelected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding: 150px;
+    font-size: 20px;
+    border: 1px solid #2B2D42;
+    background-color: #EDF2F4;
+    color: #000000;
+    flex-direction: column;
+    margin: 20px;
+}
+.titleStelling{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stelling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin: 20px;
+    padding: 20px;
+    font-size: 16px;
+    border: 1px solid #2B2D42;
+    background-color: #EDF2F4;
+    color: #000000;
+    /* width: 300px; */
+}
+
+.stelling h4 {
+    margin-bottom: 10px;
+}
+
+.stelling p {
+    margin-bottom: 20px;
+}
+
+.stelling .stemmen {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.stelling .eens,
+.stelling .oneens {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #2B2D42;
+    color: #fff;
+    cursor: pointer;
+}
+
+.stelling .eens:hover,
+.stelling .oneens:hover {
+    background-color: #1D1F2F;
+}
