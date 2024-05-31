@@ -80,7 +80,7 @@ final class dbHandler
     {
         try {
             $pdo = new PDO($this->dataSource, $this->username, $this->password);
-            $statement = $pdo->prepare("SELECT * FROM standpuntenpartijen sp INNER JOIN standpunten s ON sp.standpuntID = s.standpuntID WHERE sp.partijID = :partijID");
+            $statement = $pdo->prepare("SELECT * FROM partij_standpunten");
             $statement->bindParam(":partijID", $partijID);
             $statement->execute();
             return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -88,6 +88,8 @@ final class dbHandler
             return false;
         }
     }
-    
 
+
+    
+  
 }

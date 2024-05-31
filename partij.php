@@ -39,13 +39,14 @@
         if ($party) {
             ?>
             <div class="partij-container">
+
                 <div class='partijSelected'>
                     <h2><?php echo $party["partijID"]; ?></h2>
                     <p><?php echo $party["partijen"]; ?></p>
-                    <p><?php echo $party["standpunten"]; ?></p>
                 </div>
 
                 <h3 class="titleStelling" >Standpunten</h3>
+                
                 <?php
                 $stellingen = $dbHandler->selectStellingen($partyId);
                 if ($stellingen) {
