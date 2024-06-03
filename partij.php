@@ -34,7 +34,6 @@
         $partyId = $_GET['id'];
 
         $party = $dbHandler->getPartyById($partyId);
-        $partijID = $dbHandler->standpuntenpartijen($partyId);
 
         if ($party) {
             ?>
@@ -48,20 +47,19 @@
                 <h3 class="titleStelling" >Standpunten</h3>
                 
                 <?php
-                $stellingen = $dbHandler->selectStellingen($partyId);
+                $stellingen = $dbHandler->getStandpuntenByPartyId($partyId);
                 if ($stellingen) {
                     foreach ($stellingen as $stelling) {
                         echo "<div class='stelling'>";
                         echo "<h4>" . $stelling["stellingID"] . "</h4>";
                         echo "<p>" . $stelling["stellingen"] . "</p>";
-                        echo "<div class='stemmen'>";
-                        // echo "<button class='eens'>Eens</button>";
-                        echo "<button class='oneens'>Oneens</button>";
+                        echo "<div class='standpunt'>";
+                        echo "<p>Standpunt: " . $stelling["standpunt"] . "</p>";
                         echo "</div>";
                         echo "</div>";
                     }
                 } else {
-                    echo "No stellingen found for this party.";
+                    echo "No standpunten found for this party.";
                 }
                 ?>
             </div>

@@ -89,6 +89,25 @@ final class dbHandler
         }
     }
 
+    public function getStandpuntenByPartyId($partyId)
+{
+    $pdo = $this->connect();
+    if ($pdo) {
+        $statement = $pdo->prepare("
+            SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt
+            FROM stellingen
+            JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
+            WHERE partij_standpunten.partijID = :partijID
+        ");
+        $statement->bindParam(":partijID", $partyId);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        return null;
+    }
+}
+
+
 
     
   
