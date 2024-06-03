@@ -33,11 +33,11 @@
 <div class="partijen-container">
     <?php
     foreach ($dbHandler->selectPartijen() as $partij) {
-        echo "<a href='partij.php?id=" . $partij["partijID"] . "' class='partij-link'>";
-        echo "<div class='partij'>";
-        echo "<h2>" . $partij["partijID"] . "</h2>";
+        echo "<a href='partij.php?id=" . $partij["partijID"] . "' class='partij'>";
+        // echo "<div class='partij'>";
+        // echo "<h2>" . $partij["partijID"] . "</h2>";
         echo "<p>" . $partij["partijen"] . "</p>";
-        echo "</div>";
+        // echo "</div>";
         echo "</a>";
     }
     ?>

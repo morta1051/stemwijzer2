@@ -40,7 +40,7 @@
             <div class="partij-container">
 
                 <div class='partijSelected'>
-                    <h2><?php echo $party["partijID"]; ?></h2>
+                    <!-- <h2><?php echo $party["partijID"]; ?></h2> -->
                     <p><?php echo $party["partijen"]; ?></p>
                 </div>
 
