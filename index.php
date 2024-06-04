@@ -34,24 +34,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/home.css>
     <title>Login</title>
 </head>
 <body>
-
-<header>
-    <a id="logo" href="index.php">
-      <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
-    </a>
-</header>
-<nav>
-    <ul>
-        <li><a class="active" href="index.php">Home</a></li>
-        <li><a href="partijen.php">Partijen</a></li>
-        <li><a href="nieuws.php">Nieuws</a></li>
-        <li><a href="stellingen.php">Stellingen</a></li>
-    </ul>
-</nav>
-<div class="background-image"></div>
+    <form method='post' action='login.php'> 
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="loginUsername">Username</label>
+                <input id="loginUsername" class="form-control" name="loginUsername" required/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
+            </div>
+            <button type="submit" class="btn btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
+                <i class="fa fa-sign-in-alt"></i> Log In
+            </button>
+            <p>Do you have an account? <a href="index.php">Sign up</a></p>
+        </div>
+    </form>
 </body>
 </html>
