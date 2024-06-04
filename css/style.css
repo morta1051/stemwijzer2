@@ -4,7 +4,9 @@ body{
     padding: 0;
     font-family: quicksand;
     background-color: #fff;
+    
 }
+
 .active{
     background-color: #2B2D42;
     border-radius: 5px;
@@ -44,4 +46,10 @@ body{
     box-shadow: #8D99AE 5px 5px 5px;
     justify-content: center;
     transition: 0.3s;
+}
+
+.InfoText{
+    border: #2B2D42 solid 2px;
+    border-radius: 15px;
+    justify-content: center;
 }
