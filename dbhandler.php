@@ -15,6 +15,26 @@ final class dbHandler
         }
     }
 
+      public function validateUser($username, $password)
+    {
+        $db = $this->connect();
+        if ($db) {
+            try {
+                $statement = $db->prepare("SELECT * FROM beheerder WHERE Username = :username AND Passwordbeheer = :password");
+                $statement->bindParam(':username', $username);
+                $statement->bindParam(':password', $password);
+                $statement->execute();
+                $user = $statement->fetch(PDO::FETCH_ASSOC);
+                return ($user !== false);
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return false;
+            }
+        }
+        return false;
+    }
+
+
     public function selectPartijen()
     {   
     try {
@@ -106,9 +126,36 @@ final class dbHandler
         return null;
     }
 }
+public function insertPartij($partijNaam)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("INSERT INTO partijen (partijen) VALUES (:partijNaam)");
+        $statement->bindParam(":partijen", $partijNaam);
+        $statement->execute();
+        return true;
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
+
+public function insertStandpunt($stellingId, $partijId, $standpunt, $argument)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("INSERT INTO partij_standpunten (stellingID, partijID, standpunt) VALUES (:stellingID, :partijID, :standpunt, :argument)");
+        $statement->bindParam(":stellingID", $stellingId);
+        $statement->bindParam(":partijID", $partijId);
+        $statement->bindParam(":standpunt", $standpunt);
+        $statement->bindParam(":argument", $argument);
+        $statement->execute();
+        return true;
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
 
 
 
-    
-  
+
 }
