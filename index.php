@@ -1,43 +1,57 @@
+<?php
+session_start();
+require_once 'dbhandler.php';
+
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    $username = $_POST['loginUsername'];
+    $password = $_POST['loginPassword'];
+
+    $dbHandler = new dbHandler();
+
+    if ($dbHandler->validateUser($username, $password)) {
+        $_SESSION['username'] = $username;
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "Invalid username or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
-    <title>Stemwijzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Login</title>
 </head>
 <body>
-
-<header>
-    <a id="logo" href="index.php">
-      <img src="img/logo-met-text-rechts.svg" width="200px" height="auto" alt="Logo">
-    </a>
-</header>
-<nav>
-    <ul>
-        <li><a class="active" href="index.php">Home</a></li>
-        <li><a href="partijen.php">Partijen</a></li>
-        <li><a href="nieuws.php">Nieuws</a></li>
-        <li><a href="stellingen.php">Stellingen</a></li>
-    </ul>
-</nav>
-<main class="container">
-    <div class="InfoText">
-    Welkom bij StemWijzer.nl! We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.
-
-StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie. We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen. Door een aantal vragen te beantwoorden, krijg je inzicht in welke partij het beste aansluit bij jouw denkwijze en waarden.
-
-Onze missie is om iedereen te ondersteunen bij het maken van een weloverwogen keuze tijdens het stemmen. Of je nu een expert bent in politieke zaken of er minder van af weet, StemWijzer.nl staat voor je klaar. We geloven in de kracht van geïnformeerde beslissingen en willen daarom een betrouwbare en toegankelijke bron van informatie zijn voor alle kiezers.
-
-Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.
-    </div>
-</main>
-<div class="background-image"></div>
-
+    <form method='post' action='login.php'> 
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="loginUsername">Username</label>
+                <input id="loginUsername" class="form-control" name="loginUsername" required/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
+            </div>
+            <button type="submit" class="btn btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
+                <i class="fa fa-sign-in-alt"></i> Log In
+            </button>
+            <p>Do you have an account? <a href="index.php">Sign up</a></p>
+        </div>
+    </form>
 </body>
 </html>
