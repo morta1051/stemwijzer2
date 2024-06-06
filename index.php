@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/home.css>
+    <link rel="stylesheet" href="css/home.css">
     <title>Stemwijzer</title>
 </head>
 <body>
 
 <header>
     <a id="logo" href="index.php">
-      <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
+      <img src="img/logo-met-text-rechts.svg" width="200px" height="auto" alt="Logo">
     </a>
 </header>
 <nav>
@@ -26,17 +26,16 @@
         <li><a href="stellingen.php">Stellingen</a></li>
     </ul>
 </nav>
-<main class= "container">
-<div class= "InfoText">
-    
-Welkom bij StemWijzer.nl! We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.
+<main class="container">
+    <div class="InfoText">
+    Welkom bij StemWijzer.nl! We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.
 
 StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie. We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen. Door een aantal vragen te beantwoorden, krijg je inzicht in welke partij het beste aansluit bij jouw denkwijze en waarden.
 
 Onze missie is om iedereen te ondersteunen bij het maken van een weloverwogen keuze tijdens het stemmen. Of je nu een expert bent in politieke zaken of er minder van af weet, StemWijzer.nl staat voor je klaar. We geloven in de kracht van geïnformeerde beslissingen en willen daarom een betrouwbare en toegankelijke bron van informatie zijn voor alle kiezers.
 
 Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.
-</div>
+    </div>
 </main>
 <div class="background-image"></div>
 

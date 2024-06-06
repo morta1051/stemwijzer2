@@ -1,13 +1,18 @@
-body{
+body {
     height: 100vh;
     width: 100%;
+    margin: 0;
 }
-.container{    
+
+.container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-   
-} 
-.InfoText{
-    grid-column: 2;
+}
+
+.InfoText {
+    grid-column-start: 2;
+    grid-column-end: 4 ;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
