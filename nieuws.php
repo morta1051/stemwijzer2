@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <a id="logo" href="index.php">
+    <a id="logo" href="home.php">
       <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>

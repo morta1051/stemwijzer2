@@ -1,0 +1,45 @@
+<?php
+    include_once "dbhandler.php";
+    $dbHandler = new dbHandler();
+
+    if (isset($_GET['id'])) {
+        $partyId = $_GET['id'];
+
+        $party = $dbHandler->getPartyById($partyId);
+
+        if ($party) {
+            ?>
+            <div class="partij-container">
+
+                <div class='partijSelected'>
+                    <p><?php echo $party["partijen"]; ?></p>
+                </div>
+
+                <h3 class="titleStelling" >Standpunten</h3>
+                
+                <?php
+                $stellingen = $dbHandler->getStandpuntenByPartyId($partyId);
+                if ($stellingen) {
+                    foreach ($stellingen as $stelling) {
+                        echo "<div class='stelling'>";
+                        echo "<h4>" . $stelling["stellingID"] . "</h4>";
+                        echo "<p>Stelling: " . $stelling["stellingen"] . "</p>";
+                        echo "<div class='standpunt'>";
+                        echo "<p>Standpunt: " . $stelling["standpunt"] . "</p>";
+                        echo "<h4>Argument: " . $stelling["argument"] . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "No standpunten found for this party.";
+                }
+                ?>
+            </div>
+            <?php
+        } else {
+            echo "Party not found.";
+        }
+    } else {
+        echo "No party ID provided.";
+    }
+    ?>

@@ -33,8 +33,6 @@ final class dbHandler
         }
         return false;
     }
-
-
     public function selectPartijen()
     {   
     try {
@@ -109,23 +107,43 @@ final class dbHandler
         }
     }
 
-    public function getStandpuntenByPartyId($partyId)
-{
-    $pdo = $this->connect();
-    if ($pdo) {
-        $statement = $pdo->prepare("
-            SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt
-            FROM stellingen
-            JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
-            WHERE partij_standpunten.partijID = :partijID
-        ");
-        $statement->bindParam(":partijID", $partyId);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-        return null;
+    public function getStandpuntenByPartyIdV1($partyId)
+    {
+        $pdo = $this->connect();
+        if ($pdo) {
+            $statement = $pdo->prepare("
+                SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
+                FROM stellingen
+                JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
+                WHERE partij_standpunten.partijID = :partijID
+                AND stellingen.verkiezingID = 1
+            ");
+            $statement->bindParam(":partijID", $partyId);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            return null;
+        }
     }
-}
+
+    public function getStandpuntenByPartyIdV2($partyId)
+    {
+        $pdo = $this->connect();
+        if ($pdo) {
+            $statement = $pdo->prepare("
+                SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
+                FROM stellingen
+                JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
+                WHERE partij_standpunten.partijID = :partijID
+                AND stellingen.verkiezingID = 2
+            ");
+            $statement->bindParam(":partijID", $partyId);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            return null;
+        }
+    }
 public function insertPartij($partijNaam)
 {
     try {
@@ -154,8 +172,15 @@ public function insertStandpunt($stellingId, $partijId, $standpunt, $argument)
         return false;
     }
 }
-
-
-
-
+public function Getverkiezing()
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("SELECT * FROM verkiezingen");
+        $statement->execute();
+        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
 }

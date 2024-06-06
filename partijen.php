@@ -16,8 +16,8 @@
     include_once "dbhandler.php";
     $dbHandler = new dbHandler();
     ?>
-   <header>
-    <a id="logo" href="index.php">
+  <header>
+    <a id="logo" href="home.php">
       <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
@@ -30,17 +30,18 @@
     </ul>
 </nav>
 
-<div class="partijen-container">
+<div class="verkiezingen-container">
     <?php
-    foreach ($dbHandler->selectPartijen() as $partij) {
-        echo "<a href='partij.php?id=" . $partij["partijID"] . "' class='partij'>";
-        // echo "<div class='partij'>";
-        // echo "<h2>" . $partij["partijID"] . "</h2>";
-        echo "<p>" . $partij["partijen"] . "</p>";
-        // echo "</div>";
+
+    $verkiezingen = $dbHandler->Getverkiezing();
+    foreach ($verkiezingen as $verkiezing) {
+        echo "<a href='partij.php?id=" . $verkiezing["verkiezingID"] . "' class='verkiezingen'>"; 
+        echo "<p>" . $verkiezing["naam"] . "</p>";
         echo "</a>";
     }
+
     ?>
+</div>
 </div>
 </div>
 </body>
