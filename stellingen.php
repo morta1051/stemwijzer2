@@ -22,7 +22,7 @@
 </header>
 <nav>
     <ul>
-        <li><a  href="index.php">Home</a></li>
+        <li><a  href="home.php">Home</a></li>
         <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a class="active" href="stellingen.php">Stellingen</a></li>

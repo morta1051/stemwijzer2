@@ -7,12 +7,54 @@ body {
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px; 
+    margin: 20px;
+    background-image: url('img/backgroundStem.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .InfoText {
     grid-column-start: 2;
-    grid-column-end: 4 ;
+    grid-column-end: 4;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 4;
+    font-size: small;
+    font-weight: bold;
+}
+
+.knopText {
+    grid-column: 2 / span 2;
+    grid-row: 4;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center; 
+}
+
+.arrow {
+    grid-column: 2 / span 2;
+    grid-row: 4;
+    margin-top: 50px;
+    font-size: x-large;
+    text-align: center; 
+}
+
+.StemwijzerButton {
+    grid-column: 2 / span 2;
+    grid-row: 5;
+    margin: 0 auto;
+    height: 50px;
+    width: 100px;
+    font-size: large;
+    align-items: center;
+    background-color: #2B2D42;
+    color: aliceblue;
+    cursor: pointer;
+    display: block; 
+    text-align: center; 
+}
+
+.StemwijzerButton:hover {
+    background-color: darkblue;
 }
