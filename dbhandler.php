@@ -69,6 +69,16 @@ final class dbHandler
             return false;
         }
     }
+    public function selectlandelijkestellingen(){
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("SELECT * FROM landelijke_stellingen");
+            $statement->execute();
+            return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $exception) {
+            return false;
+        }
+    }
     public function selectStandpunten()
     {
         try {
@@ -112,11 +122,11 @@ final class dbHandler
         $pdo = $this->connect();
         if ($pdo) {
             $statement = $pdo->prepare("
-                SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
+                SELECT stellingen.stellingID, stellingen.stellingen, stellingen.naam, partij_standpunten.standpunt, partij_standpunten.argument
                 FROM stellingen
                 JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
                 WHERE partij_standpunten.partijID = :partijID
-                AND stellingen.verkiezingID = 1
+               
             ");
             $statement->bindParam(":partijID", $partyId);
             $statement->execute();
@@ -183,4 +193,7 @@ public function Getverkiezing()
         return false;
     }
 }
+
+
+
 }

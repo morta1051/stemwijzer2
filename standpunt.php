@@ -55,6 +55,7 @@
                 if ($stellingen) {
                     foreach ($stellingen as $stelling) {
                         echo "<div class='stelling'>";
+                        echo "<h1>verkiezing: " . $stelling["naam"] . "</p\h1s>";
                         echo "<h4>" . $stelling["stellingID"] . "</h4>";
                         echo "<p>Stelling: " . $stelling["stellingen"] . "</p>";
                         echo "<div class='standpunt'>";
