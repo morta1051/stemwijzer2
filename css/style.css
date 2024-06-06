@@ -14,7 +14,7 @@ body{
     box-shadow: #8D99AE 5px 5px 5px;
     justify-content: center;
 }   
-.partijen-container{
+.verkiezingen-container{
     display: flex;
     justify-content: center;
     align-items: last baseline;
@@ -23,7 +23,7 @@ body{
     column-gap: 20px;
     gap: 25px;
 }
-.partij {
+.verkiezingen {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,10 +37,10 @@ body{
     width: 100px;
     text-decoration: none; 
 }
-.partij a{
+.verkiezingen a{
     text-decoration: none;
 }
-.partij:hover{
+.verkiezingen:hover{
     background-color: #2B2D42;
     color: #fff;
     box-shadow: #8D99AE 5px 5px 5px;

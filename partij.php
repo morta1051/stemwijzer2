@@ -12,6 +12,11 @@
     <title>partij</title>
 </head>
 <body>
+    <?php
+
+    include_once "dbhandler.php";
+    $dbHandler = new dbHandler();
+    ?>
     <header>
         <a id="logo" href="index.php">
           <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
@@ -26,49 +31,15 @@
         </ul>
     </nav>
 
+    <div class="verkiezingen-container">
     <?php
-    include_once "dbhandler.php";
-    $dbHandler = new dbHandler();
 
-    if (isset($_GET['id'])) {
-        $partyId = $_GET['id'];
+    foreach ($dbHandler->selectPartijen() as $partij) {
+        echo "<a href='standpunt.php?id=" . $partij["partijID"] . "' class='verkiezingen'>"; 
+        echo "<p>" . $partij["partijen"] . "</p>";
+        echo "</a>";
+    }   
 
-        $party = $dbHandler->getPartyById($partyId);
-
-        if ($party) {
-            ?>
-            <div class="partij-container">
-
-                <div class='partijSelected'>
-                    <p><?php echo $party["partijen"]; ?></p>
-                </div>
-
-                <h3 class="titleStelling" >Standpunten</h3>
-                
-                <?php
-                $stellingen = $dbHandler->getStandpuntenByPartyId($partyId);
-                if ($stellingen) {
-                    foreach ($stellingen as $stelling) {
-                        echo "<div class='stelling'>";
-                        echo "<h4>" . $stelling["stellingID"] . "</h4>";
-                        echo "<p>" . $stelling["stellingen"] . "</p>";
-                        echo "<div class='standpunt'>";
-                        echo "<p>Standpunt: " . $stelling["standpunt"] . "</p>";
-                        echo "</div>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "No standpunten found for this party.";
-                }
-                ?>
-            </div>
-            <?php
-        } else {
-            echo "Party not found.";
-        }
-    } else {
-        echo "No party ID provided.";
-    }
     ?>
     </div>
 

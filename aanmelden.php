@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once 'dbhandler.php';
@@ -7,18 +8,18 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-    $username = $_POST['loginUsername'];
-    $password = $_POST['loginPassword'];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+    $username = $_POST['registerUsername'];
+    $password = $_POST['registerPassword'];
 
     $dbHandler = new dbHandler();
 
-    if ($dbHandler->validateUser($username, $password)) {
+    if ($dbHandler->registerUser($username, $password)) {
         $_SESSION['username'] = $username;
         header("Location: beheerlogin.php");
         exit();
     } else {
-        echo "Invalid username or password.";
+        echo "Failed to register user.";
     }
 }
 ?>
@@ -34,23 +35,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>Registration</title>
 </head>
 <body>
     <form method='post' action='index.php'> 
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="loginUsername">Gebruikersnaam</label>
-                <input id="loginUsername" class="form-control" name="loginUsername" required/>
+                <label for="registerUsername">Username</label>
+                <input id="registerUsername" class="form-control" name="registerUsername" required/>
             </div>
             <div class="form-group col-md-6">
-                <label for="loginPassword">Wachtwoord</label>
-                <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" class="form-control" name="registerPassword" required/>
             </div>
-            <button type="submit" class="btn btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
-                <i class="fa fa-sign-in-alt"></i> inloggen
+            <button type="submit" class="btn btn-primary col-md-2" name='register' value="register" style="margin-top: 20px;">
+                <i class="fa fa-user-plus"></i> Register
             </button>
-            <p>Heb je nog geen account <a href="aanmelden.php">Aanmelden</a></p>
+            <p>Already have an account? <a href="index.php">Login</a></p>
         </div>
     </form>
 </body>

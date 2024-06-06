@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,19 +14,18 @@
 <body>
 
 <header>
-    <a id="logo" href="index.php">
-      <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
+    <a id="logo" href="home.php">
+      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
 <nav>
     <ul>
-        <li><a class="active" href="index.php">Home</a></li>
+        <li><a class="active" href="home.php">Home</a></li>
         <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
-        <!-- <li><a href="login.php">Login</a></li> -->
     </ul>
 </nav>
-<div class="background-image"></div>
+
 </body>
 </html>
