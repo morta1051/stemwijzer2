@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
     <title>Stemwijzer</title>
 </head>
 <body>
@@ -26,6 +27,22 @@
         <li><a href="stellingen.php">Stellingen</a></li>
     </ul>
 </nav>
+<main class="container">
+    <div class="InfoText">
+        <p>Welkom bij StemWijzer.nl!</p>
+        <p>We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.</p>
+        <p>StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie.</p>
+        <p>We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen.</p>
+        <p>Door een aantal vragen te beantwoorden, krijg je inzicht in welke partij het beste aansluit bij jouw denkwijze en waarden.</p>
+        <p>Onze missie is om iedereen te ondersteunen bij het maken van een weloverwogen keuze tijdens het stemmen. Of je nu een expert bent in politieke zaken of er minder van af weet, StemWijzer.nl staat voor je klaar.</p>
+        <p>We geloven in de kracht van geïnformeerde beslissingen en willen daarom een betrouwbare en toegankelijke bron van informatie zijn voor alle kiezers.</p>
+        <p>Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.</p>
+    </div>
+    <label class="knopText" >wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
+    <label class="arrow"> ↓</label>
+    <button class="StemwijzerButton" onclick="window.location.href='stellingen.php';">Stemwijzer</button>
+</main>
 
+<div class="background-image"></div>
 </body>
 </html>
