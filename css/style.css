@@ -29,13 +29,14 @@ body{
     align-items: center;
     margin-top: 5px;
     padding: 150px;
-    font-size: 20px;
+    font-size: x-large;
     border: 1px solid #2B2D42;
     background-color: #EDF2F4;  
     color: #000000;
     flex-direction: column;
     width: 100px;
     text-decoration: none; 
+    border-radius: 25px
 }
 .verkiezingen a{
     text-decoration: none;
