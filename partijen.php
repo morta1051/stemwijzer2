@@ -39,7 +39,6 @@
         echo "<p>" . $partij["partijen"] . "</p>";
         echo "</a>";
     }   
-
     ?>
     </div>
 

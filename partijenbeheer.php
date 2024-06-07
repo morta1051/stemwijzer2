@@ -58,6 +58,20 @@
             <button type="submit">Add</button>
         </form>
     </div>
+    <div class="update-partij-container">
+        <h2>Update Party</h2>
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+            <select name="partijID" required>
+                <?php
+                foreach ($dbHandler->selectPartijen() as $partij) {
+                    echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
+                }
+                ?>
+            </select>
+            <input type="text" name="partijNaam" placeholder="New Party Name" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
     <div class="delete-partij-container">
         <h2>Delete Party</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
@@ -79,6 +93,12 @@
 
             // Add the party to the database
             $dbHandler->addPartij($partijNaam);
+        } elseif (isset($_POST["partijID"]) && isset($_POST["partijNaam"])) {
+            $partijID = $_POST["partijID"];
+            $partijNaam = $_POST["partijNaam"];
+
+            // Update the party in the database
+            $dbHandler->updatePartij($partijID, $partijNaam);
         } elseif (isset($_POST["partijID"])) {
             $partijID = $_POST["partijID"];
 
@@ -86,6 +106,7 @@
             $dbHandler->deletePartij($partijID);
         }
     }
+    
     ?>
 
     <footer>

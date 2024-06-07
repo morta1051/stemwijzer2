@@ -15,12 +15,30 @@ final class dbHandler
         }
     }
 
-      public function validateUser($username, $password)
+      public function validatebeheer($username, $password)
     {
         $db = $this->connect();
         if ($db) {
             try {
                 $statement = $db->prepare("SELECT * FROM beheerder WHERE Username = :username AND Passwordbeheer = :password");
+                $statement->bindParam(':username', $username);
+                $statement->bindParam(':password', $password);
+                $statement->execute();
+                $user = $statement->fetch(PDO::FETCH_ASSOC);
+                return ($user !== false);
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return false;
+            }
+        }
+        return false;
+    }
+    public function validateGebruiker($username, $password)
+    {
+        $db = $this->connect();
+        if ($db) {
+            try {
+                $statement = $db->prepare("SELECT * FROM gebruikers WHERE naam = :username AND PasswordUser = :password");
                 $statement->bindParam(':username', $username);
                 $statement->bindParam(':password', $password);
                 $statement->execute();
@@ -213,6 +231,19 @@ public function deletePartij($partijId)
         $pdo = new PDO($this->dataSource, $this->username, $this->password);
         $statement = $pdo->prepare("DELETE FROM partijen WHERE partijID = :partijID");
         $statement->bindParam(":partijID", $partijId);
+        $statement->execute();
+        return true;
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
+public function updatePartij($partijId, $partijNaam)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("UPDATE partijen SET partijen = :partijNaam WHERE partijID = :partijID");
+        $statement->bindParam(":partijID", $partijId);
+        $statement->bindParam(":partijNaam", $partijNaam);
         $statement->execute();
         return true;
     } catch(PDOException $exception) {

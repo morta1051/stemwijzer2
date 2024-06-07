@@ -1,3 +1,22 @@
+<?php
+session_start();
+require_once 'dbhandler.php';
+
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+$dbHandler = new dbHandler();
+
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +44,14 @@
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <!-- <li><a href="login.php">Login</a></li> -->
+        <form method="post">
+        <button type="submit" name="logout">uit loggen</button>
+    </form>
     </ul>
 </nav>
 <main class="container">
     <div class="InfoText">
-        <p>Welkom bij StemWijzer.nl!</p>
+        <p>Welkom <?php echo htmlspecialchars($username); ?> bij StemWijzer.nl!</p>
         <p>We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.</p>
         <p>StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie.</p>
         <p>We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen.</p>
@@ -41,6 +63,10 @@
     <label class="knopText">Wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
     <label class="arrow">↓</label>
     <button class="StemwijzerButton" onclick="window.location.href='stellingen.php';">Stemwijzer</button>
+
+   
+
+    
 </main>
 </body>
 </html>
