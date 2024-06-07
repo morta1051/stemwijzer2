@@ -24,8 +24,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="partijen.php">Partijen</a></li>
+            <li><a href="beheerlogin.php">Home</a></li>
+            <li><a href="partijenbeheer.php">Partijen</a></li>
             <li><a href="nieuws.php">Nieuws</a></li>
             <li><a href="stellingen.php">Stellingen</a></li>
         </ul>

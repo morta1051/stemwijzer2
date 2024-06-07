@@ -195,5 +195,28 @@ public function Getverkiezing()
 }
 
 
-
+public function addPartij($partijNaam)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("INSERT INTO partijen (partijen) VALUES (:partijNaam)");
+        $statement->bindParam(":partijNaam", $partijNaam);
+        $statement->execute();
+        return true;
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
+public function deletePartij($partijId)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare("DELETE FROM partijen WHERE partijID = :partijID");
+        $statement->bindParam(":partijID", $partijId);
+        $statement->execute();
+        return true;
+    } catch(PDOException $exception) {
+        return false;
+    }
+}
 }
