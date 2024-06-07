@@ -1,16 +1,21 @@
-body {
-    height: 100vh;
-    width: 100%;
+html, body {
+    height: 100%;
     margin: 0;
+}
+
+body {
+    background-image: url("../img/stebackgroundimg.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 10px; 
+    gap: 10px;
     margin: 20px;
-    background-image: url('img/backgroundStem.jpg');
+    background-image: url('img/stebackgroundimg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -22,6 +27,7 @@ body {
     grid-row-end: 4;
     font-size: small;
     font-weight: bold;
+    margin: 10px;
 }
 
 .knopText {
@@ -29,7 +35,7 @@ body {
     grid-row: 4;
     font-weight: bolder;
     font-size: large;
-    text-align: center; 
+    text-align: center;
 }
 
 .arrow {
@@ -37,7 +43,7 @@ body {
     grid-row: 4;
     margin-top: 50px;
     font-size: x-large;
-    text-align: center; 
+    text-align: center;
 }
 
 .StemwijzerButton {
@@ -51,10 +57,13 @@ body {
     background-color: #2B2D42;
     color: aliceblue;
     cursor: pointer;
-    display: block; 
-    text-align: center; 
+    display: block;
+    text-align: center;
 }
 
 .StemwijzerButton:hover {
     background-color: darkblue;
+}
+.InfoText p {
+margin: 10px;
 }
