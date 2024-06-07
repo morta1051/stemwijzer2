@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +14,17 @@
 <body>
 
 <header>
-    <a id="logo" href="home.php">
-      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
+    <a id="logo" href="index.php">
+      <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
     </a>
 </header>
 <nav>
     <ul>
-        <li><a class="active" href="home.php">Home</a></li>
+        <li><a class="active" href="index.php">Home</a></li>
         <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
+        <!-- <li><a href="login.php">Login</a></li> -->
     </ul>
 </nav>
 <main class="container">
@@ -38,11 +38,9 @@
         <p>We geloven in de kracht van geïnformeerde beslissingen en willen daarom een betrouwbare en toegankelijke bron van informatie zijn voor alle kiezers.</p>
         <p>Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.</p>
     </div>
-    <label class="knopText" >wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
-    <label class="arrow"> ↓</label>
+    <label class="knopText">Wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
+    <label class="arrow">↓</label>
     <button class="StemwijzerButton" onclick="window.location.href='stellingen.php';">Stemwijzer</button>
 </main>
-
-<div class="background-image"></div>
 </body>
 </html>
