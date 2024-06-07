@@ -3,7 +3,7 @@ session_start();
 require_once 'dbhandler.php';
 
 if (isset($_SESSION['username'])) {
-    header("Location: beheerlogin.php");
+    header("Location: home.php");
     exit();
 }
 
@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
     $dbHandler = new dbHandler();
 
-    if ($dbHandler->validateUser($username, $password)) {
+    if ($dbHandler->validateGebruiker($username, $password)) {
         $_SESSION['username'] = $username;
-        header("Location: beheerlogin.php");
+        header("Location: home.php");
         exit();
     } else {
         echo "Invalid username or password.";
