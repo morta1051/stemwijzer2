@@ -43,10 +43,9 @@ if (isset($_POST['logout'])) {
         <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
-        <!-- <li><a href="login.php">Login</a></li> -->
         <form method="post">
         <button type="submit" name="logout">uit loggen</button>
-    </form>
+       </form>
     </ul>
 </nav>
 <main class="container">
