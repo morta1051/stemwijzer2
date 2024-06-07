@@ -28,6 +28,9 @@
             <li><a href="partijen.php">Partijen</a></li>
             <li><a href="nieuws.php">Nieuws</a></li>
             <li><a href="stellingen.php">Stellingen</a></li>
+            <form method="post">
+            <button type="submit" name="logout">uit loggen</button>
+           </form>
         </ul>
     </nav>
 
