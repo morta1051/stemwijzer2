@@ -1,0 +1,28 @@
+body {
+    font-family: quicksand;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+
+main {
+    padding: 20px;
+}
+
+.nieuws-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nieuws-item {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px  darkgray;
+}
+
+.nieuws-item h3 {
+    margin-top: 0;
+}

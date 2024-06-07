@@ -40,7 +40,7 @@
     </div>
     <label class="knopText">Wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
     <label class="arrow">↓</label>
-    <button class="StemwijzerButton" onclick="window.location.href='stellingen.php';">Stemwijzer</button>
+    <button class="StemwijzerButton" onclick="window.location.href='Stemwijzer.php';">Stemwijzer</button>
 </main>
 </body>
 </html>
