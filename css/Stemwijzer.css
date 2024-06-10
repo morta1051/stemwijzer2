@@ -4,3 +4,21 @@
     text-align: center;
     margin-top: 20px;
 }
+.StellingenStemwijzer
+{
+ font-weight: bold;
+    margin-left: 10px;
+    gap: 15px;
+}
+.Stemwijzer{
+    margin-bottom: 15px;
+}
+.button1{
+    align-items: center;
+    background-color: #2B2D42;
+    color: aliceblue;
+    cursor: pointer;
+}
+.button1:hover{
+    background-color: darkblue;
+}

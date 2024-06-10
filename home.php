@@ -59,9 +59,9 @@ if (isset($_POST['logout'])) {
         <p>We geloven in de kracht van geïnformeerde beslissingen en willen daarom een betrouwbare en toegankelijke bron van informatie zijn voor alle kiezers.</p>
         <p>Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.</p>
     </div>
-    <label class="knopText">Wilt u uw stemwijzer uitvoeren druk dan op deze knop!</label>
+    <label class="knopText">Wilt u uw stemwijzer maken? druk dan op deze knop!</label>
     <label class="arrow">↓</label>
-    <button class="StemwijzerButton" onclick="window.location.href='stellingen.php';">Stemwijzer</button>
+    <button class="StemwijzerButton" onclick="window.location.href='Stemwijzer.php';">Stemwijzer</button>
 </main>
 </body>
 </html>

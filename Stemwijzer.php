@@ -13,6 +13,10 @@
     <title>Stemwijzer</title>
 </head>
 <body>
+<?php
+    include_once "dbhandler.php";
+    $dbHandler = new dbHandler();
+    ?>
 <header>
     <a id="logo" href="index.php">
       <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
@@ -28,5 +32,18 @@
     </ul>
 </nav>
 <div class="Welkomtext">Welkom op de stemwijzer!</div>
+<form action="resultaat.php" method= "post">
+<div class="Stemwijzer">
+<?php
+    foreach ($dbHandler->selectStellingen() as $partij) {
+    //    echo "<p>" . $partij["stellingID"] . "</p>";
+       echo "<p class='StellingenStemwijzer'>" . $partij["stellingen"] . "</p>
+       <input type='checkbox' name='". $partij["stellingID"]."eens'"."/><label>eens </label>
+       <input type='checkbox' name='". $partij["stellingID"]."oneens'"."/><label>oneens</label>";
+    }
+    ?>
+    </div>
+    <button id="ResultaatKnop" class="button1" type="submit">Krijg uw resultaat</button>
+</form>
 </body>
 </html>
