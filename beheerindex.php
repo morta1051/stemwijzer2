@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <title>Login</title>
 </head>
 <body>
-    <form method='post' action='index.php'> 
+<form method='post' action='beheerindex.php'>
+
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="loginUsername">Gebruikersnaam</label>

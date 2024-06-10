@@ -40,7 +40,7 @@ if (isset($_POST['logout'])) {
     <ul>
         <li><a class="active" href="beheerlogin.php">Home</a></li>
         <li><a href="partijenbeheer.php">Partijen </a></li>
-        <li><a href="nieuws.php">Nieuws</a></li>
+        <li><a href="beheernieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li> 
     </ul>
 </nav>
