@@ -1,4 +1,11 @@
-
+body{
+    background-image: url("../img/stebackgroundimg.jpg");
+     background-size: cover; 
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: auto;
+    background-size: 100%;
+}
 .partijSelected{
     display: flex;
     justify-content: center;
