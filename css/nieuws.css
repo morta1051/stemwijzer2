@@ -2,19 +2,23 @@ body {
     font-family: quicksand;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-image: url("../img/stebackgroundimg.jpg");
+    background-size: cover;
+    background-position: center;
+
 }
 
 
-main {
+.mainclass {
     padding: 20px;
+
 }
 
 .nieuws-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    cursor: pointer;
+  
 }
 
 .nieuws-item {

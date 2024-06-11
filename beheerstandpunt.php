@@ -18,7 +18,7 @@
     $dbHandler = new dbHandler();
     ?>
     <header>
-        <a id="logo" href="index.php">
+        <a id="logo" href="beheerindex.php">
           <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
         </a>
     </header>
@@ -27,7 +27,7 @@
             <li><a href="beheerlogin.php">Home</a></li>
             <li><a href="partijenbeheer.php">Partijen</a></li>
             <li><a href="nieuws.php">Nieuws</a></li>
-            <li><a href="stellingen.php">Stellingen</a></li>
+            <li><a href="beheerstellingen.php">Stellingen</a></li>
         </ul>
     </nav>
 

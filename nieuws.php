@@ -26,7 +26,7 @@
       
     </ul>
 </nav>
-<main>
+<main class="mainclass">
         <h2>Nieuwtjes over Politieke Partijen</h2>
         <div class="nieuws-container">
             <?php

@@ -16,17 +16,9 @@
 
     include_once "dbhandler.php";
     $dbHandler = new dbHandler();
-
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $partijNaam = $_POST["partijNaam"];
-
-        // Add the party to the database
-        $dbHandler->addPartij($partijNaam);
-    }
     ?>
     <header>
-        <a id="logo" href="index.php">
+        <a id="logo" href="beheerindex.php">
           <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
         </a>
     </header>
@@ -38,6 +30,38 @@
             <li><a href="stellingen.php">Stellingen</a></li>
         </ul>
     </nav>
+    <?php
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["partijNaam"])) {
+            $partijNaam = $_POST["partijNaam"];
+
+            // Add the party to the database
+            $dbHandler->addPartij($partijNaam);
+
+                $_POST["submitAdd"] = false;
+            }
+        } elseif (isset($_POST["submitUpdate"])) {
+            if(isset($_POST["partijID"]) && isset($_POST["partijNaam"])){
+                $partijID = $_POST["partijID"];
+                $partijNaam = $_POST["partijNaam"];
+    
+                // Update the party in the database
+                $_POST["submitUpdate"] = false;
+                $dbHandler->updatePartij($partijID, $partijNaam);
+            }
+        } elseif (isset($_POST["submitDelete"])) {
+            if(isset($_POST["partijID"])){
+                $partijID = $_POST["partijID"];
+
+                // Delete the party from the database
+                $_POST["submitDelete"] = false;
+                $dbHandler->deletePartij($partijID);
+            }
+        }
+    
+    
+    ?>
 
     <div class="verkiezingen-container">
     <?php
@@ -53,9 +77,9 @@
 
     <div class="add-partij-container">
         <h2>Add Party</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="POST">
             <input type="text" name="partijNaam" placeholder="Party Name" required>
-            <button type="submit">Add</button>
+            <input type="submit" value="Add" name="submitAdd">
         </form>
     </div>
     <div class="update-partij-container">
@@ -69,7 +93,7 @@
                 ?>
             </select>
             <input type="text" name="partijNaam" placeholder="New Party Name" required>
-            <button type="submit">Update</button>
+            <input type="submit" value="Update" name="submitUpdate">
         </form>
     </div>
     <div class="delete-partij-container">
@@ -82,32 +106,10 @@
                 }
                 ?>
             </select>
-            <button type="submit">Delete</button>
+            <input type="submit" value="Delete" name="submitDelete">
         </form>
     </div>
-    <?php
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["partijNaam"])) {
-            $partijNaam = $_POST["partijNaam"];
-
-            // Add the party to the database
-            $dbHandler->addPartij($partijNaam);
-        } elseif (isset($_POST["partijID"]) && isset($_POST["partijNaam"])) {
-            $partijID = $_POST["partijID"];
-            $partijNaam = $_POST["partijNaam"];
-
-            // Update the party in the database
-            $dbHandler->updatePartij($partijID, $partijNaam);
-        } elseif (isset($_POST["partijID"])) {
-            $partijID = $_POST["partijID"];
-
-            // Delete the party from the database
-            $dbHandler->deletePartij($partijID);
-        }
-    }
-    
-    ?>
+   
 
     <footer>
         <p>&copy; 2021 - Project Webdevelopment - Partijen</p>

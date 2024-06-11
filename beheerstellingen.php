@@ -17,22 +17,21 @@
     $dbHandler = new dbHandler();
     ?>
    <header>
-    <a id="logo" href="home.php">
+    <a id="logo" href="beheerindex.php">
       <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
 <nav>
     <ul>
-        <li><a  href="home.php">Home</a></li>
-        <li><a href="partijen.php">Partijen</a></li>
-        <li><a  href="nieuws.php">Nieuws</a></li>
-        <li><a class="active" href="stellingen.php">Stellingen</a></li>
+        <li><a  href="beheerindex.php">Home</a></li>
+        <li><a href="partijenbeheer.php">Partijen</a></li>
+        <li><a  href="beheernieuws.php">Nieuws</a></li>
+        <li><a class="active" href="beheerstellingen.php">Stellingen</a></li>
     </ul>
 </nav>
 
 <?php
-    foreach ($dbHandler->selectStellingen() as $partij ) {
-        
+    foreach ($dbHandler->selectStellingen() as $partij) {
     //    echo "<p class='stelling-container'>" . $partij["stellingID"] . "</p>";
        echo "<p class='stelling-container'>"."</p>";
        echo "<p class='stelling-item '>" . $partij["stellingen"] . "</p>";

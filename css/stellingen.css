@@ -1,0 +1,20 @@
+.stelling-container {
+    display: flex;
+    flex-direction: column;
+  height: 5px;
+}
+
+.stelling-item {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px  darkgray;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+body {
+    background-image: url("../img/stebackgroundimg.jpg");
+    background-size: cover;
+    background-position: center;
+}

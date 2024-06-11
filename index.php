@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/Login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
-<body>
+<body class="bclg">
     <form method='post' action='index.php'> 
         <div class="row">
             <div class="form-group col-md-6">
@@ -47,12 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 <label for="loginPassword">Wachtwoord</label>
                 <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
             </div>
-            <button type="submit" class="btn btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
+            <button type="submit" class="btn-btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
                 <i class="fa fa-sign-in-alt"></i> inloggen
             </button>
-            <p>Heb je nog geen account <a href="aanmelden.php">Aanmelden</a></p>
+            <p>Heb je nog geen account <a class="aanmeldText" href="aanmelden.php">Aanmelden</a></p>
             <p>beheer login: <a href="beheerindex.php">beheer login</a></p>
         </div>
+      
     </form>
+    <!-- <a id="logo">
+      <img id="logo" src="img/logo-met-text-rechts.svg">
+    </a> -->
+   
+
 </body>
+
+
 </html>

@@ -38,8 +38,8 @@
     foreach ($dbHandler->selectStellingen() as $partij) {
     //    echo "<p>" . $partij["stellingID"] . "</p>";
        echo "<p class='StellingenStemwijzer'>" . $partij["stellingen"] . "</p>
-       <input type='checkbox' name='". $partij["stellingID"]."eens'"."/><label>eens </label>
-       <input type='checkbox' name='". $partij["stellingID"]."oneens'"."/><label>oneens</label>";
+       <label><input type='checkbox' name='". $partij["stellingID"]."eens'"."/>eens </label>
+       <label><input  type='checkbox' name='". $partij["stellingID"]."oneens'"."/>oneens</label>";
     }
     ?>
     </div>

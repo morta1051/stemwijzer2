@@ -138,7 +138,7 @@ final class dbHandler
     {
         try {
             $pdo = new PDO($this->dataSource, $this->username, $this->password);
-            $statement = $pdo->prepare("SELECT * FROM partij_standpunten ");
+            $statement = $pdo->prepare("SELECT * FROM partij_standpunten  ");
             $statement->execute();
             return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $exception) {

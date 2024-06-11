@@ -1,0 +1,29 @@
+body {
+
+    height: 100vh;
+    overflow: hidden;
+}
+.bclg{
+    background-image: url("../img/logo-met-text-rechts.svg");
+    background-size: cover;
+    background-position: center;
+ 
+
+}
+/* #logo{
+    background-image: url("../img/logo-met-text-rechts.svg");
+    background-size: cover;
+ 
+
+} */
+.btn-primarycol-md-2{
+    align-items: center;
+    background-color: #2B2D42;
+    color: aliceblue;
+    cursor: pointer;
+    max-width: 50px;
+    height: 60px;
+}
+.aanmeldText{
+    color: #2B2D42;
+}
