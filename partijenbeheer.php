@@ -85,7 +85,6 @@
         <form method="POST">
             <input type="text" name="partijNaam" placeholder="Party Name" required>
             <input type="submit" value="Add" name="submitAdd">
-            <input type="submit" value="Add" name="submitAdd">
         </form>
     </div>
     <div class="update-partij-container">
