@@ -14,19 +14,12 @@
 <body>
     <?php
 
+
     include_once "dbhandler.php";
     $dbHandler = new dbHandler();
-
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $partijNaam = $_POST["partijNaam"];
-
-        // Add the party to the database
-        $dbHandler->addPartij($partijNaam);
-    }
     ?>
     <header>
-        <a id="logo" href="index.php">
+        <a id="logo" href="beheerindex.php">
           <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
         </a>
     </header>
@@ -38,9 +31,48 @@
             <li><a href="stellingen.php">Stellingen</a></li>
         </ul>
     </nav>
+    <?php
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["partijNaam"])) {
+            $partijNaam = $_POST["partijNaam"];
+
+
+            // Add the party to the database
+            $dbHandler->addPartij($partijNaam);
+
+
+                $_POST["submitAdd"] = false;
+            }
+        } elseif (isset($_POST["submitUpdate"])) {
+            if(isset($_POST["partijID"]) && isset($_POST["partijNaam"])){
+                $partijID = $_POST["partijID"];
+                $partijNaam = $_POST["partijNaam"];
+    
+                // Update the party in the database
+              
+                $dbHandler->updatePartij($partijID, $partijNaam);
+                $_POST["submitUpdate"] = false;
+            }
+        } elseif (isset($_POST["submitDelete"])) {
+            if(isset($_POST["partijID"])){
+                $partijID = $_POST["partijID"];
+
+
+                // Delete the party from the database
+               
+                $dbHandler->deletePartij($partijID);
+                $_POST["submitDelete"] = false;
+            }
+        }
+    
+    
+    ?>
+
 
     <div class="verkiezingen-container">
     <?php
+
 
     foreach ($dbHandler->selectPartijen() as $partij) {
         echo "<a href='beheerstandpunt.php?id=" . $partij["partijID"] . "' class='verkiezingen'>"; 
@@ -48,18 +80,20 @@
         echo "</a>";
     }   
 
+
     ?>
     </div>
 
+
     <div class="add-partij-container">
-        <h2>Add Party</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <h2>Add partij</h2>
+        <form method="POST">
             <input type="text" name="partijNaam" placeholder="Party Name" required>
-            <button type="submit">Add</button>
+            <input type="submit" value="Add" name="submitAdd">
         </form>
     </div>
     <div class="update-partij-container">
-        <h2>Update Party</h2>
+        <h2>Update partij</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <select name="partijID" required>
                 <?php
@@ -68,12 +102,12 @@
                 }
                 ?>
             </select>
-            <input type="text" name="partijNaam" placeholder="New Party Name" required>
-            <button type="submit">Update</button>
+            <input type="text" name="partijNaam" placeholder="Nieuwe Partij Naam" required>
+            <input type="submit" value="Update" name="submitUpdate">
         </form>
     </div>
     <div class="delete-partij-container">
-        <h2>Delete Party</h2>
+        <h2>Delete partij</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <select name="partijID" required>
                 <?php
@@ -82,35 +116,14 @@
                 }
                 ?>
             </select>
-            <button type="submit">Delete</button>
+            <input type="submit" value="Verwijder" name="submitDelete">
         </form>
     </div>
-    <?php
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["partijNaam"])) {
-            $partijNaam = $_POST["partijNaam"];
+   
 
-            // Add the party to the database
-            $dbHandler->addPartij($partijNaam);
-        } elseif (isset($_POST["partijID"]) && isset($_POST["partijNaam"])) {
-            $partijID = $_POST["partijID"];
-            $partijNaam = $_POST["partijNaam"];
-
-            // Update the party in the database
-            $dbHandler->updatePartij($partijID, $partijNaam);
-        } elseif (isset($_POST["partijID"])) {
-            $partijID = $_POST["partijID"];
-
-            // Delete the party from the database
-            $dbHandler->deletePartij($partijID);
-        }
-    }
-    
-    ?>
 
     <footer>
-        <p>&copy; 2021 - Project Webdevelopment - Partijen</p>
+        <p>&copy; 2021 -    Partijen</p>
     </footer>
 </body>
 </html>
