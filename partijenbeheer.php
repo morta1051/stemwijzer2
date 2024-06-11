@@ -14,10 +14,12 @@
 <body>
     <?php
 
+
     include_once "dbhandler.php";
     $dbHandler = new dbHandler();
     ?>
     <header>
+        <a id="logo" href="beheerindex.php">
         <a id="logo" href="beheerindex.php">
           <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
         </a>
@@ -66,24 +68,28 @@
     <div class="verkiezingen-container">
     <?php
 
+
     foreach ($dbHandler->selectPartijen() as $partij) {
         echo "<a href='beheerstandpunt.php?id=" . $partij["partijID"] . "' class='verkiezingen'>"; 
         echo "<p>" . $partij["partijen"] . "</p>";
         echo "</a>";
     }   
 
+
     ?>
     </div>
+
 
     <div class="add-partij-container">
         <h2>Add Party</h2>
         <form method="POST">
             <input type="text" name="partijNaam" placeholder="Party Name" required>
             <input type="submit" value="Add" name="submitAdd">
+            <input type="submit" value="Add" name="submitAdd">
         </form>
     </div>
     <div class="update-partij-container">
-        <h2>Update Party</h2>
+        <h2>Update partij</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <select name="partijID" required>
                 <?php
@@ -97,7 +103,7 @@
         </form>
     </div>
     <div class="delete-partij-container">
-        <h2>Delete Party</h2>
+        <h2>Delete partij</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
             <select name="partijID" required>
                 <?php
@@ -112,7 +118,7 @@
    
 
     <footer>
-        <p>&copy; 2021 - Project Webdevelopment - Partijen</p>
+        <p>&copy; 2021 -    Partijen</p>
     </footer>
 </body>
 </html>
