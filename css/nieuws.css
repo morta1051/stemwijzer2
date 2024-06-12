@@ -21,13 +21,35 @@ body {
   
 }
 
+
 .nieuws-item {
     background: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px  darkgray;
+    box-shadow: #8D99AE 5px 5px 5px;
+    transition: 1s; 
+    text-align: center;
+}
+.nieuws-item:hover{
+    background-color: #2B2D42;
 }
 
 .nieuws-item h3 {
     margin-top: 0;
+}
+.Linktext{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+.Linktext:hover{
+    color: white;
+}
+.titeltext{
+background-color: white;
+color: black;
+padding: 20px;
+border-radius: 5px;
+box-shadow: #8D99AE 5px 5px 5px;
+text-align: center;
 }

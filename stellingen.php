@@ -35,7 +35,7 @@
         
     //    echo "<p class='stelling-container'>" . $partij["stellingID"] . "</p>";
        echo "<p class='stelling-container'>"."</p>";
-       echo "<p class='stelling-item '>" . $partij["stellingen"] . "</p>";
+       echo "<p class='stelling-item '>".$partij["stellingen"]. "</p>";
     }
     ?>
 </body>
