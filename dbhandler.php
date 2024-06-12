@@ -183,19 +183,6 @@ final class dbHandler
             return null;
         }
     }
-public function insertPartij($partijNaam)
-{
-    try {
-        $pdo = new PDO($this->dataSource, $this->username, $this->password);
-        $statement = $pdo->prepare("INSERT INTO partijen (partijen) VALUES (:partijNaam)");
-        $statement->bindParam(":partijen", $partijNaam);
-        $statement->execute();
-        return true;
-    } catch(PDOException $exception) {
-        return false;
-    }
-}
-
 public function insertStandpunt($stellingId, $partijId, $standpunt, $argument)
 {
     try {

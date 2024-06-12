@@ -34,15 +34,18 @@
     </nav>
     <?php
     // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["partijNaam"])) {
-            $partijNaam = $_POST["partijNaam"];
+ 
+        if(isset($_POST["submitAdd"])){
+            if (isset($_POST["partijNaam"])) {
+                $partijNaam = $_POST["partijNaam"];
+                
+                // Add the party to the database
+                $dbHandler->addPartij($partijNaam);
 
-            // Add the party to the database
-            $dbHandler->addPartij($partijNaam);
-
-                $_POST["submitAdd"] = false;
-            }
+                // Redirect to the same page to prevent form resubmission
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
+                }
         } elseif (isset($_POST["submitUpdate"])) {
             if(isset($_POST["partijID"]) && isset($_POST["partijNaam"])){
                 $partijID = $_POST["partijID"];
@@ -89,7 +92,7 @@
     </div>
     <div class="update-partij-container">
         <h2>Update partij</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="POST">
             <select name="partijID" required>
                 <?php
                 foreach ($dbHandler->selectPartijen() as $partij) {
@@ -103,7 +106,7 @@
     </div>
     <div class="delete-partij-container">
         <h2>Delete partij</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <form method="POST">
             <select name="partijID" required>
                 <?php
                 foreach ($dbHandler->selectPartijen() as $partij) {
