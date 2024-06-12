@@ -56,9 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         </div>
       
     </form>
-    <!-- <a id="logo">
-      <img id="logo" src="img/logo-met-text-rechts.svg">
-    </a> -->
+
    
 
 </body>

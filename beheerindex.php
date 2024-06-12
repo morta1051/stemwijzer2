@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 <i class="fa fa-sign-in-alt"></i> inloggen
             </button>
             <p>Heb je nog geen account <a href="aanmelden.php">Aanmelden</a></p>
+            <p>gebruiker login:  <a href="index.php">login</a></p>
         </div>
     </form>
 </body>
