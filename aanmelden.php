@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Registration</title>
 </head>
-<body>
+<body>  
     <form method='post' action='index.php'> 
         <div class="row">
             <div class="form-group col-md-6">
