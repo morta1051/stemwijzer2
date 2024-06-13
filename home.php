@@ -45,7 +45,7 @@ if (isset($_POST['logout'])) {
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <form method="post">
-        <button type="submit" class="uitlog" name="logout">uitloggen</button>
+        <button type="submit" class="" name="logout">uitloggen</button>
     </form>
     </ul>
     
@@ -54,7 +54,7 @@ if (isset($_POST['logout'])) {
 
 <main class="container">
     <div class="InfoText">
-        <p>Welkom <?php echo htmlspecialchars($username); ?> bij StemWijzer.nl!</p>
+        <p>Welkom <?php echo ($username); ?> bij StemWijzer.nl!</p>
         <p>We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.</p>
         <p>StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie.</p>
         <p>We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen.</p>
@@ -64,7 +64,7 @@ if (isset($_POST['logout'])) {
         <p>Neem gerust een kijkje op onze website en ontdek welke partij het beste bij jou past! Bij StemWijzer.nl gaat het erom dat jouw stem gehoord wordt.</p>
     </div>
     <label class="knopText">Wilt u uw stemwijzer maken? druk dan op deze knop!</label>
-    <!-- <label class="arrow">↓</label> -->
+    <label class="arrow">↓</label>
     <button class="StemwijzerButton" onclick="window.location.href='Stemwijzer.php';">Stemwijzer</button>
 </main>
 </body>

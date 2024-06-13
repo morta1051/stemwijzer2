@@ -50,7 +50,7 @@
                 </div>
 
                 <h3 class="titleStelling" >Standpunten</h3>
-                <h4> 1 is Eens, 0 is Oneens</h4>
+                <h4 class="titleStelling" > 1 is Eens, 0 is Oneens</h4>
                 
                 <?php
                 $stellingen = $dbHandler->getStandpuntenByPartyIdV1($partyId);
