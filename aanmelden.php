@@ -1,22 +1,20 @@
-
 <?php
 session_start();
 require_once 'dbhandler.php';
 
 if (isset($_SESSION['username'])) {
-    header("Location: home.php");
+    header("Location: index.php"); 
     exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $username = $_POST['registerUsername'];
     $password = $_POST['registerPassword'];
-
     $dbHandler = new dbHandler();
 
     if ($dbHandler->registerUser($username, $password)) {
         $_SESSION['username'] = $username;
-        header("Location: home.php");
+        header("Location: index.php");
         exit();
     } else {
         echo "Failed to register user.";
@@ -35,23 +33,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <title>Registration</title>
+    <title>Aanmelden</title>
 </head>
 <body>  
-    <form method='post' action='index.php'> 
+    <form method='post' action='aanmelden.php'> 
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="registerUsername">Username</label>
+                <label for="registerUsername">Gebruikersnaam</label>
                 <input id="registerUsername" class="form-control" name="registerUsername" required/>
             </div>
             <div class="form-group col-md-6">
-                <label for="registerPassword">Password</label>
+                <label for="registerPassword">Wachtwoord</label>
                 <input type="password" id="registerPassword" class="form-control" name="registerPassword" required/>
             </div>
             <button type="submit" class="btn btn-primary col-md-2" name='register' value="register" style="margin-top: 20px;">
-                <i class="fa fa-user-plus"></i> Register
+                <i class="fa fa-user-plus"></i> Aanmelden
             </button>
-            <p>Already have an account? <a href="index.php">Login</a></p>
+            <p>Heb je al een account? <a href="index.php">Login</a></p>
         </div>
     </form>
 </body>

@@ -31,7 +31,33 @@ nav ul {
     padding: 0;
     margin: 10px;
 }
-
+.uitlog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #8D99AE 5px 5px 5px;   
+    transition: 0.5s;
+}
+.uitlog:hover{
+    background-color: #2B2D42;
+    border-radius: 5px; 
+    color: #fff;
+    box-shadow: #8D99AE 1px 1px 1px;
+}
+.active{
+    background-color: #2B2D42;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: #8D99AE 5px 5px 5px;
+    justify-content: center;
+    transition: 0.5s;
+}   
+.active:hover{
+    background-color: #2B2D42;
+    border-radius: 5px; 
+    color: #fff;
+    box-shadow: #8D99AE 1px 1px 1px;
+}
 @media screen and (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -43,6 +69,7 @@ nav ul li a:hover {
     background-color: #2B2D42;
     border-radius: 5px; 
     color: #fff;
+    transition: 0.5ss   ;
     box-shadow: #8D99AE 5px 5px 5px;
 }
 

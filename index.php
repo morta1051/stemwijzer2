@@ -48,18 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 <label for="loginPassword">Wachtwoord</label>
                 <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
             </div>
-            <button type="submit" class="btn-btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
-                <i class="fa fa-sign-in-alt"></i> inloggen
+            <button type="submit" class="btn btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
+                <i class="fa fa-sign-in-alt"></i> Inloggen
             </button>
-            <p>Heb je nog geen account <a class="aanmeldText" href="aanmelden.php">Aanmelden</a></p>
-            <p>beheer login: <a href="beheerindex.php">beheer login</a></p>
+            <p>Heb je nog geen account? <a class="aanmeldText" href="aanmelden.php">Aanmelden</a></p>
+            <p>Beheer login: <a href="beheerindex.php">Beheer login</a></p>
         </div>
-      
     </form>
-
-   
-
 </body>
-
-
 </html>

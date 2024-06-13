@@ -10,13 +10,7 @@ body{
 p{
     font-family: quicksand;
 }
-.active{
-    background-color: #2B2D42;
-    border-radius: 5px;
-    color: #fff;
-    box-shadow: #8D99AE 5px 5px 5px;
-    justify-content: center;
-}   
+
 .verkiezingen-container{
     display: flex;
     justify-content: center;

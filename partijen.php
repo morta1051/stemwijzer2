@@ -37,10 +37,11 @@
 
     foreach ($dbHandler->selectPartijen() as $partij) {
         echo "<a href='standpunt.php?id=" . $partij["partijID"] . "' class='verkiezingen'>"; 
-        // echo "<img class='images' src='" . $partij["image"] . "' alt='Party Logo'  style='width: 150px; height: 150px; object-fit: cover; border-radius: 100%;'>";
-        echo "<p>" . $partij["partijen"] . "</p>";
+        //echo "<img class='images' src='" . $partij["image"] . "' alt='Party Logo'  style='width: 200px; height: 200px; object-fit: cover; border-radius: 100%;'>";
+         echo "<p>" . $partij["partijen"] . "</p>";
         echo "</a>";
     }
+
     ?>
     </div>
 

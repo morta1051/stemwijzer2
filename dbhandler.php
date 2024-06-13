@@ -33,17 +33,16 @@ final class dbHandler
         }
         return false;
     }
-    public function validateGebruiker($username, $password)
-    {
+    public function registerUser($username, $password) {
         $db = $this->connect();
         if ($db) {
             try {
-                $statement = $db->prepare("SELECT * FROM gebruikers WHERE naam = :username AND PasswordUser = :password");
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $statement = $db->prepare("INSERT INTO gebruikers (naam, passwordUser) VALUES (:username, :password)");
                 $statement->bindParam(':username', $username);
-                $statement->bindParam(':password', $password);
+                $statement->bindParam(':password', $hashedPassword);
                 $statement->execute();
-                $user = $statement->fetch(PDO::FETCH_ASSOC);
-                return ($user !== false);
+                return true;
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
                 return false;
@@ -51,6 +50,36 @@ final class dbHandler
         }
         return false;
     }
+
+    public function validateGebruiker($username, $password) {
+        $db = $this->connect();
+        if ($db) {
+            try {
+                $statement = $db->prepare("SELECT passwordUser FROM gebruikers WHERE naam = :username");
+                $statement->bindParam(':username', $username);
+                $statement->execute();
+                $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+                if ($user) {
+                    $hashedPassword = $user['passwordUser'];
+                    if (password_verify($password, $hashedPassword)) {
+                        return true;
+                    } else {
+                        echo "Password verification failed.";
+                        return false;
+                    }
+                } else {
+                    echo "User not found.";
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return false;
+            }
+        }
+        return false;
+    }
+
     public function selectPartijen()
     {   
     try {
