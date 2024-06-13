@@ -65,16 +65,16 @@
                         echo "</div>";
                     }
                 } else {
-                    echo "No standpunten found for this party.";
+                    echo "Geen standpunten gevonden voor deze partij";
                 }
                 ?>
             </div>
             <?php
         } else {
-            echo "Party not found.";
+            echo "Geen partije gevonden";
         }
     } else {
-        echo "No party ID provided.";
+        echo "Geen partij id gevonden";
     }
     ?>
     </div>

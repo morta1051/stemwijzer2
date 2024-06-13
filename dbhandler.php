@@ -164,6 +164,34 @@ final class dbHandler
             return null;
         }
     }
+    public function updateStandpunt($stellingId, $partijId, $standpunt, $argument)
+    {
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("UPDATE partij_standpunten SET standpunt = :standpunt, argument = :argument WHERE stellingID = :stellingID AND partijID = :partijID");
+            $statement->bindParam(":stellingID", $stellingId);
+            $statement->bindParam(":partijID", $partijId);
+            $statement->bindParam(":standpunt", $standpunt);
+            $statement->bindParam(":argument", $argument);
+            $statement->execute();
+            return true;
+        } catch (PDOException $exception) {
+            return false;
+        }
+    }
+    public function deleteStandpunt($stellingId, $partijId)
+    {
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("DELETE FROM partij_standpunten WHERE stellingID = :stellingID AND partijID = :partijID");
+            $statement->bindParam(":stellingID", $stellingId);
+            $statement->bindParam(":partijID", $partijId);
+            $statement->execute();
+            return true;
+        } catch (PDOException $exception) {
+            return false;
+        }
+    }
 
     public function getStandpuntenByPartyIdV2($partyId)
     {

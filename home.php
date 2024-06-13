@@ -43,11 +43,12 @@ if (isset($_POST['logout'])) {
         <li><a href="partijen.php">Partijen</a></li>
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
-        <form method="post">
-        <button type="submit" name="logout">uitloggen</button>
-       </form>
     </ul>
+    <form method="post">
+        <button type="submit" name="logout">uitloggen</button>
+    </form>
 </nav>
+
 <main class="container">
     <div class="InfoText">
         <p>Welkom <?php echo htmlspecialchars($username); ?> bij StemWijzer.nl!</p>
