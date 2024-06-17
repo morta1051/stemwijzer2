@@ -6,8 +6,10 @@
 }
 .StellingenStemwijzer
 {
+    align-self: center;
+    align-items: center;
     justify-content: center;
- font-weight: bold;
+    font-weight: bold;
     margin-left: 10px;
     gap: 15px;
 }

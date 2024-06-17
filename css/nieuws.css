@@ -54,3 +54,6 @@ border-radius: 5px;
 box-shadow: #8D99AE 5px 5px 5px;
 text-align: center;
 }
+.commentText:hover{
+color: white;
+}
