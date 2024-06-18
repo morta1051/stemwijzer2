@@ -12,11 +12,15 @@
     <title>Nieuws</title>
 </head>
 <body>
+
+    
+
 <header>
-    <a id="logo" href="beheerindex.php">
-      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
+    <a id="logo" href="home.php">
+      <img id="logo" src="img\logo-met-text-rechts.svg" width="200px" alt="Logo">
     </a>
 </header>
+
 <nav>
     <ul>
         <li><a href="beheerlogin.php">Home</a></li>
@@ -25,52 +29,68 @@
         <li><a href="beheerstellingen.php">Stellingen</a></li>
     </ul>
 </nav>
-<main>
-    <h2>Nieuwtjes over Politieke Partijen</h2>
-    <div class="nieuws-container">
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "stemwijzer";
-        $conn = new mysqli($servername, $username, $password, $dbname);
+<?php     
+        include_once "dbhandler.php";
+        $dbHandler = new dbHandler();
 
-        if ($conn->connect_error) {
-            die("Verbinding mislukt: " . $conn->connect_error);
-        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $titel = $_POST['titel'];
+            $link = $_POST['link'];
+            $inhoud = $_POST['inhoud'];
+            $partij = $_POST['partij'];
+            $datum = $_POST['datum'];
 
-        // Check if the user is logged in as an administrator
-        $isAdmin = false; // Set this variable based on your authentication logic
-
-        if ($isAdmin) {
-            echo "<a href='add_news.php'>Voeg nieuwsbericht toe</a>";
-        }
-
-        $sql = "SELECT id, titel, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='nieuws-item'>";
-                echo "<h3>" . $row["titel"] . "</h3>";
-                echo "<p><strong>Partij:</strong> " . $row["partij"] . "</p>";
-                echo "<p><strong>Datum:</strong> " . $row["datum"] . "</p>";
-                echo "<p>" . $row["inhoud"] . "</p>";
-
-                if ($isAdmin) {
-                    echo "<a href='edit_news.php?id=" . $row["id"] . "'>Bewerken</a>";
-                    echo "<a href='delete_news.php?id=" . $row["id"] . "'>Verwijderen</a>";
-                }
-
-                echo "</div>";
+            if ($dbHandler->addNieuws($titel, $link, $inhoud, $partij, $datum)) {
+                echo "<p>Nieuwsbericht toegevoegd.</p>";
+            } else {
+                echo "<p>Toeveogen van nieuwsbericht is niet gelukt</p>";
             }
-        } else {
-            echo "<p>Geen nieuws beschikbaar.</p>";
         }
 
-        $conn->close();
-        ?>
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
+            $id = $_GET['delete'];
+
+            if ($dbHandler->deleteNieuws($id)) {
+                echo "<p>Nieuwsbericht succesvol verwijderd.</p>";
+            } else {
+                echo "<p>Er is een fout opgetreden bij het verwijderen van het nieuwsbericht.</p>";
+            }
+        }
+    ?>
+<main class="mainclass">
+    <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
+    <div class="nieuwsContainer">
+    <?php
+    foreach ($dbHandler->selectNieuws() as $row) {
+        echo "<div class='nieuws-item'>";
+        echo "<h3>" . ($row["titel"]) . "</h3>";
+        echo "<p><strong>Partij:</strong> " . ($row["partij"]) . "</p>";
+        echo "<p><strong>Datum:</strong> " . ($row["datum"]) . "</p>";
+        echo "<p>" . ($row["inhoud"]) . "</p>";
+        echo  "<form method='get' action='beheernieuws.php'>";
+        echo  "<input type='hidden' name='delete' value='" . $row["id"] . "'>";
+        echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
+        echo "</form>";
+        echo "</div>";
+        
+
+    }
+    ?>
     </div>
+    <form action="beheernieuws.php" method="post">
+        <h3>Nieuw nieuwsbericht toevoegen</h3>
+        <label for="titel">Titel:</label>
+        <input type="text" id="titel" name="titel" required>    
+        <label for="link">Link:</label>
+        <input type="url" id="link" name="link" required>   
+        <label for="inhoud">Inhoud:</label>
+        <textarea id="inhoud" name="inhoud" required></textarea>
+        <label for="partij">Partij:</label>
+        <input type="text" id="partij" name="partij" required>
+        <label for="datum">Datum:</label>
+        <input type="date" id="datum" name="datum" required>
+        <button type="submit">Toevoegen</button>
+    </form>
 </main>
 </body>
 </html>

@@ -43,14 +43,13 @@ if (isset($_POST['logout'])) {
         <li><a href="beheernieuws.php">Nieuws</a></li>
         <li><a href="beheerstellingen.php">Stellingen</a></li> 
     </ul>
-</nav>
-<div class="background-image"></div>
-<h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
-
+    
 <form method="post">
     <button type="submit" name="logout">uit loggen</button>
 </form>
+</nav>
+<div class="background-image"></div>
+<h2>Welcome, <?php echo ($username); ?>!</h2>
 
-    
 </body>
 </html>

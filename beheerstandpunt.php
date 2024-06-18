@@ -26,7 +26,7 @@
         <ul>
             <li><a href="beheerlogin.php">Home</a></li>
             <li><a href="partijenbeheer.php">Partijen</a></li>
-            <li><a href="nieuws.php">Nieuws</a></li>
+            <li><a href="beheernieuws.php">Nieuws</a></li>
             <li><a href="beheerstellingen.php">Stellingen</a></li>
         </ul>
     </nav>

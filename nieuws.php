@@ -12,6 +12,11 @@
     <title>Nieuws</title>
 </head>
 <body>
+<?php
+
+include_once "dbhandler.php";
+$dbHandler = new dbHandler();
+?>
 <header>
     <a id="logo" href="home.php">
       <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo   ">
@@ -27,41 +32,20 @@
     </ul>
 </nav>
 <main class="mainclass">
-        <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
-        <div class="nieuws-container">
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "stemwijzer";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Verbinding mislukt: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo"<a href=$row[link] class='Linktext'>";
-                    echo "<div class='nieuws-item'>";
-                    echo "<h3>" . $row["titel"] . "</h3>";
-                    echo "<p><strong>Partij:</strong> " . $row["partij"] . "</p>";
-                    echo "<p><strong>Datum:</strong> " . $row["datum"] . "</p>";
-                   
-                    echo "<p>" . $row["inhoud"] . "</p>";
-                    echo "</div>";
-                 echo "</a>";
-                }
-            } else {
-                echo "<p>Geen nieuws beschikbaar.</p>";
-            }
-
-            $conn->close();
-            ?>
-        </div>
+<div class="nieuwsContainer">
+    <?php
+    foreach ($dbHandler->selectNieuws() as $row) {
+            echo "<a href='" . ($row['link']) . "' class='Linktext'>";
+            echo "<div class='nieuws-item'>";
+            echo "<h3>" . ($row["titel"]) . "</h3>";
+            echo "<p><strong>Partij:</strong> " . ($row["partij"]) . "</p>";
+            echo "<p><strong>Datum:</strong> " . ($row["datum"]) . "</p>";
+            echo "<p>" . ($row["inhoud"]) . "</p>";
+            echo "</div>";
+            echo "</a>";
+        }
+    ?>
+    </div>
     </main>
 </body>
 </html>

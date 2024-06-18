@@ -2,13 +2,14 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: quicksand;
     background-color: #fff;
+    font-family: quicksand;
+
     
 }
 
 p{
-    font-family: quicksand;
+   font-family: quicksand; 
 }
 
 .verkiezingen-container{
@@ -62,3 +63,4 @@ button{
     margin-bottom: 10px;
     justify-content: center;
 }
+   

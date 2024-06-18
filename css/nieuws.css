@@ -8,7 +8,6 @@ body {
 
 }
 
-
 .mainclass {
     padding: 20px;
 
@@ -18,9 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  
 }
-
 
 .nieuws-item {
     background: white;
@@ -53,4 +50,9 @@ padding: 20px;
 border-radius: 5px;
 box-shadow: #8D99AE 5px 5px 5px;
 text-align: center;
+}
+.nieuwsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

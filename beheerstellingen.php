@@ -32,7 +32,6 @@
 
 <?php
     foreach ($dbHandler->selectStellingen() as $partij) {
-    //    echo "<p class='stelling-container'>" . $partij["stellingID"] . "</p>";
        echo "<p class='stelling-container'>"."</p>";
        echo "<p class='stelling-item '>" . $partij["stellingen"] . "</p>";
     }

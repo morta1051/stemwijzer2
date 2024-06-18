@@ -104,6 +104,56 @@ final class dbHandler
             return false;
         }
     }
+    public function deleteNieuws($nieuwsID)
+    {
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("DELETE FROM nieuws WHERE id = :id");
+            $statement->bindParam(":id", $nieuwsID);
+            $statement->execute();
+            return true;
+        } catch(PDOException $exception) {
+            return false;
+        }
+    }
+    public function addNieuws($titel, $link, $inhoud, $partij, $datum)
+    {
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("INSERT INTO nieuws (titel, link, inhoud, partij, datum) VALUES (:titel, :link, :inhoud, :partij, :datum)");
+            $statement->bindParam(':titel', $titel);
+            $statement->bindParam(':link', $link);
+            $statement->bindParam(':inhoud', $inhoud);
+            $statement->bindParam(':partij', $partij);
+            $statement->bindParam(':datum', $datum);
+            $statement->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function updateNieuws($id, $titel, $link, $inhoud, $partij, $datum)
+{
+    try {
+        $pdo = new PDO($this->dataSource, $this->username, $this->password);
+        $statement = $pdo->prepare(
+            "UPDATE nieuws SET titel = :titel, link = :link, inhoud = :inhoud, partij = :partij, datum = :datum WHERE id = :id"
+        );
+        $statement->bindParam(':titel', $titel);
+        $statement->bindParam(':link', $link);
+        $statement->bindParam(':inhoud', $inhoud);
+        $statement->bindParam(':partij', $partij);
+        $statement->bindParam(':datum', $datum);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        return true;
+    } catch (PDOException $exception) {
+        echo "Error: " . $exception->getMessage();
+        return false;
+    }
+}
+
 
     public function selectStellingen()
     {
@@ -116,16 +166,16 @@ final class dbHandler
             return false;
         }
     }
-    public function selectlandelijkestellingen(){
-        try {
-            $pdo = new PDO($this->dataSource, $this->username, $this->password);
-            $statement = $pdo->prepare("SELECT * FROM landelijke_stellingen");
-            $statement->execute();
-            return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        } catch(PDOException $exception) {
-            return false;
-        }
-    }
+    // public function selectlandelijkestellingen(){
+    //     try {
+    //         $pdo = new PDO($this->dataSource, $this->username, $this->password);
+    //         $statement = $pdo->prepare("SELECT * FROM landelijke_stellingen");
+    //         $statement->execute();
+    //         return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    //     } catch(PDOException $exception) {
+    //         return false;
+    //     }
+    // }
     public function selectStandpunten()
     {
         try {
@@ -222,24 +272,24 @@ final class dbHandler
         }
     }
 
-    public function getStandpuntenByPartyIdV2($partyId)
-    {
-        $pdo = $this->connect();
-        if ($pdo) {
-            $statement = $pdo->prepare("
-                SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
-                FROM stellingen
-                JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
-                WHERE partij_standpunten.partijID = :partijID
-                AND stellingen.verkiezingID = 2
-            ");
-            $statement->bindParam(":partijID", $partyId);
-            $statement->execute();
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            return null;
-        }
-    }
+    // public function getStandpuntenByPartyIdV2($partyId)
+    // {
+    //     $pdo = $this->connect();
+    //     if ($pdo) {
+    //         $statement = $pdo->prepare("
+    //             SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
+    //             FROM stellingen
+    //             JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
+    //             WHERE partij_standpunten.partijID = :partijID
+    //             AND stellingen.verkiezingID = 2
+    //         ");
+    //         $statement->bindParam(":partijID", $partyId);
+    //         $statement->execute();
+    //         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    //     } else {
+    //         return null;
+    //     }
+    // }
 public function insertStandpunt($stellingId, $partijId, $standpunt, $argument)
 {
     try {
