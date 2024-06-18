@@ -15,7 +15,7 @@
 <body>
 <header>
     <a id="logo" href="home.php">
-      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
+      <img id="fortnitelogo" src="img/logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
 <nav>
@@ -34,9 +34,9 @@
     $dbHandler = new dbHandler();
     $resultaten =[];
     foreach ($dbHandler->stemwijzerResultaat() as $partijstandpunt) {
-        $partijID=$partijstandpunt["partijID"];
-        $stellingID=$partijstandpunt["stellingID"];
-        $standpunt=$partijstandpunt["standpunt"];
+        $partijID = $partijstandpunt["partijID"];
+        $stellingID = $partijstandpunt["stellingID"];
+        $standpunt = $partijstandpunt["standpunt"];
 
         $found = false;
 
@@ -51,12 +51,13 @@
             $resultaten[] = (object) ['partijId' => $partijID, "aantalEens" => 0];
         }
         
-        $gebruikerEens=FALSE;
+        $gebruikerEens = FALSE;
 
-        if (isset($_POST[$stellingID . "eens"])) {
+        if (isset($_POST[$stellingID]) && $_POST[$stellingID] == 'eens') {
             $gebruikerEens = TRUE;
         }
-        if($standpunt==$gebruikerEens){
+
+        if ($standpunt == $gebruikerEens) {
             foreach ($resultaten as $resultaat) {
                 if ($resultaat->partijId == $partijID) {
                     $resultaat->aantalEens++;
@@ -64,21 +65,21 @@
             }
         }
     }
+
     usort($resultaten, function($a, $b) {
         return $b->aantalEens - $a->aantalEens;
     });
-    $topResultaten = array_slice($resultaten, 0, 3);
-    ?>
-<main>
-<h2 class="ResultaatText"> Hier zijn de resultaten van de stemwijzer</h2>
-<?php
-foreach  ($resultaten as $resultaat) {
-   $partij= $dbHandler->getPartyById($resultaat-> partijId);
-    echo"<p class='ResultaatText'>partij ".$partij['partijen']." is het eens met ". $resultaat-> aantalEens." standpunten </p>";
-}
 
+    $topResultaten = array_slice($resultaten, 0, 3);
+?>
+<main>
+<h2 class="ResultaatText">Hier zijn de resultaten van de stemwijzer</h2>
+<?php
+foreach ($resultaten as $resultaat) {
+   $partij = $dbHandler->getPartyById($resultaat->partijId);
+    echo "<p class='ResultaatText'>Partij " . $partij['partijen'] . " is het eens met " . $resultaat->aantalEens . " standpunten</p>";
+}
 ?>
 </main>
-    
 </body>
 </html>

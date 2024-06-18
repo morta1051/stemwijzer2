@@ -19,7 +19,7 @@ $dbHandler = new dbHandler();
 ?>
 <header>
     <a id="logo" href="home.php">
-      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo   ">
+      <img id="fortnitelogo" src="img\logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
 <nav>
@@ -28,7 +28,6 @@ $dbHandler = new dbHandler();
         <li><a href="partijen.php">Partijen</a></li>
         <li><a class="active" href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
-      
     </ul>
 </nav>
 <main class="mainclass">
