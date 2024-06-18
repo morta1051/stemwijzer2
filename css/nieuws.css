@@ -5,14 +5,22 @@ body {
     background-image: url("../img/stebackgroundimg.jpg");
     background-size: cover;
     background-position: center;
-
 }
 
 .mainclass {
     padding: 20px;
-
 }
-
+.commentText{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    transition: 1s; 
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    border: 3px solid black;
+}
 .nieuws-container {
     display: flex;
     flex-direction: column;
@@ -20,39 +28,46 @@ body {
 }
 
 .nieuws-item {
-    /* background: white; */
+    background: white;
     padding: 20px;
     border-radius: 5px;
-    /* box-shadow: #8D99AE 5px 5px 5px; */
     transition: 1s; 
     text-align: center;
     list-style: none;
     text-decoration: none;
     color: black;
 }
-.nieuws-item:hover{
+.link{
+    display: none;
+}
+/* 
+.nieuws-item a {
+    color: black; 
+    text-decoration: none; 
+} */
+
+/* .nieuws-item:hover {
     background-color: #2B2D42;
     color: white;
-}
+} */
+
+/* .nieuws-item:hover a {
+    color: white; /
+} */
 
 .nieuws-item h3 {
     margin-top: 0;
 }
 
-.Linktext:hover{
+/* .Linktext:hover {
     color: white;
+} */
 
-}
-.titeltext{
-background-color: white;
-color: black;
-padding: 20px;
-border-radius: 5px;
-box-shadow: #8D99AE 5px 5px 5px;
-text-align: center;
-}
-.nieuwsContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.titeltext {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: #8D99AE 5px 5px 5px;
+    text-align: center;
 }
