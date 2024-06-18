@@ -39,13 +39,28 @@
             die("Verbinding mislukt: " . $conn->connect_error);
         }
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["comment"])) {
+            $nieuws_id = $_POST["nieuws_id"];
+            $comment = $_POST["comment"];
+            $insert_sql = "INSERT INTO comments (nieuws_id, comment) VALUES (?, ?)";
+            $stmt = $conn->prepare($insert_sql);
+            $stmt->bind_param("is", $nieuws_id, $comment);
+
+            if ($stmt->execute()) {
+                header("Location: nieuws.php");
+                exit();
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+        }
+
         $sql = "SELECT id, titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='nieuws-item'>";
-                echo "<a href='" . $row['link'] . "' class='Linktext'>";
+                echo "<a href='" . $row['link'] . "' class='nieuws-item'>";
                 echo "<h3>" . $row["titel"] . "</h3>";
                 echo "<p><strong>Partij:</strong> " . $row["partij"] . "</p>";
                 echo "<p><strong>Datum:</strong> " . $row["datum"] . "</p>";
@@ -75,20 +90,6 @@
             }
         } else {
             echo "<p>Geen nieuws beschikbaar.</p>";
-        }
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["comment"])) {
-            $nieuws_id = $_POST["nieuws_id"];
-            $comment = $_POST["comment"];
-            $insert_sql = "INSERT INTO comments (nieuws_id, comment) VALUES (?, ?)";
-            $stmt = $conn->prepare($insert_sql);
-            $stmt->bind_param("is", $nieuws_id, $comment);
-
-            if ($stmt->execute()) {
-                echo "Comment successfully posted.";
-            } else {
-                echo "Error: " . $stmt->error;
-            }
         }
 
         $conn->close();
