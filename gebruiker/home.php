@@ -1,21 +1,5 @@
 <?php
-session_start();
-require_once 'dbhandler.php';
-
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
-}
-
-$username = $_SESSION['username'];
-$dbHandler = new dbHandler();
-
-if (isset($_POST['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: index.php");
-    exit();
-}
+include 'ChackLogin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +9,17 @@ if (isset($_POST['logout'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
     <title>Stemwijzer</title>
 </head>
 <body>
 
 <header>
     <a id="logo" href="index.php">
-      <img id="logo" src="img/logo-met-text-rechts.svg" width="200px" alt="Logo">
+      <img id="logo" src="../img/logo-met-text-rechts.svg" width="200px" alt="Logo">
     </a>
 </header>
 <nav>
@@ -45,8 +30,8 @@ if (isset($_POST['logout'])) {
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <form method="post">
-        <button type="submit" class="" name="logout">uitloggen</button>
-    </form>
+            <button type="submit" class="" name="logout">uitloggen</button>
+        </form>
     </ul>
     
 </nav>

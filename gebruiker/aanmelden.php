@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbhandler.php';
+require_once '../dbhandler.php';
 
 if (isset($_SESSION['username'])) {
     header("Location: index.php"); 
@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
     <title>Aanmelden</title>
 </head>
 <body>  

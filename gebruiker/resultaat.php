@@ -1,3 +1,6 @@
+<?php
+include 'ChackLogin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/nieuws.css">
-    <link rel="stylesheet" href="css/resultaat.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nieuws.css">
+    <link rel="stylesheet" href="../css/resultaat.css">
     <title>Nieuws</title>
 </head>
 <body>
 <header>
     <a id="logo" href="home.php">
-      <img id="fortnitelogo" src="img/logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
+      <img id="fortnitelogo" src="../img/logo-met-text-rechts.svg" width="200px" alt="Fluitende Fietser Logo">
     </a>
 </header>
 <nav>
@@ -25,12 +29,12 @@
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <form method="post">
-        <button type="submit" name="logout">uit loggen</button>
-       </form>
+            <button type="submit" class="" name="logout">uitloggen</button>
+        </form>
     </ul>
 </nav>
 <?php
-    include_once "dbhandler.php";
+    include_once "../dbhandler.php";
     $dbHandler = new dbHandler();
     $resultaten =[];
     foreach ($dbHandler->stemwijzerResultaat() as $partijstandpunt) {

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbhandler.php';
+require_once '../dbhandler.php';
 
 if (isset($_SESSION['username'])) {
     header("Location: home.php");
@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/Login.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
     <title>Login</title>
 </head>
 <body class="bclg">
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 <i></i> Inloggen
             </button>
             <p>Heb je nog geen account? <a class="aanmeldText" href="aanmelden.php">Aanmelden</a></p>
-            <p>Beheer login: <a href="beheerindex.php">Beheer login</a></p>
+            <p>Beheer login: <a href="../beheerder/beheerindex.php">Beheer login</a></p>
            
         </div>
     </form>
