@@ -59,24 +59,6 @@
     ?>
 <main class="mainclass">
     <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
-    <div class="nieuwsContainer">
-    <?php
-    foreach ($dbHandler->selectNieuws() as $row) {
-        echo "<div class='nieuws-item'>";
-        echo "<h3>" . ($row["titel"]) . "</h3>";
-        echo "<p><strong>Partij:</strong> " . ($row["partij"]) . "</p>";
-        echo "<p><strong>Datum:</strong> " . ($row["datum"]) . "</p>";
-        echo "<p>" . ($row["inhoud"]) . "</p>";
-        echo  "<form method='get' action='beheernieuws.php'>";
-        echo  "<input type='hidden' name='delete' value='" . $row["id"] . "'>";
-        echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
-        echo "</form>";
-        echo "</div>";
-        
-
-    }
-    ?>
-    </div>
     <form action="beheernieuws.php" method="post">
         <h3>Nieuw nieuwsbericht toevoegen</h3>
         <label for="titel">Titel:</label>
@@ -91,6 +73,23 @@
         <input type="date" id="datum" name="datum" required>
         <button type="submit">Toevoegen</button>
     </form>
+    <div class="nieuwsContainer">
+    <?php
+    foreach ($dbHandler->selectNieuws() as $row) {
+        echo "<div class='nieuws-item'>";
+        echo "<h3>" . ($row["titel"]) . "</h3>";
+        echo "<p><strong>Partij:</strong> " . ($row["partij"]) . "</p>";
+        echo "<p><strong>Datum:</strong> " . ($row["datum"]) . "</p>";
+        echo "<p>" . ($row["inhoud"]) . "</p>";
+        echo  "<form method='get' action='beheernieuws.php'>";
+        echo  "<input type='hidden' name='delete' value='" . $row["id"] . "'>";
+        echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
+        echo "</form>";
+        echo "</div>";
+    }
+    ?>
+    </div>
+   
 </main>
 </body>
 </html>

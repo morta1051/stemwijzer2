@@ -39,22 +39,24 @@
         <title>Login</title>
     </head>
     <body class="bclg">
-    <form method='post' action='beheerindex.php'>
-
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="loginUsername">Gebruikersnaam</label>
-                    <input id="loginUsername" class="form-control" name="loginUsername" required/>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="loginPassword">Wachtwoord</label>
-                    <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
-                </div>
-                <button type="submit" class="btn-btn-primary col-md-2" name='login' value="login" style="margin-top: 20px;">
-                    <i class="fa fa-sign-in-alt"></i> inloggen
-                </button>
-                <p>Heb je nog geen account <a class="aanmeldText" href="aanmelden.php">Aanmelden</a></p>
+    <body class="bclg">
+        
+    <form method='post' action='beheerindex.php'> 
+        <div class="row">
+        <h1>Beheer login</h1>
+            <div class="form-group col-md-6">
+                <label for="loginUsername">Gebruikersnaam</label>
+                <input id="loginUsername" class="form-control" name="loginUsername" required/>
             </div>
-        </form>
-    </body>
+            <div class="form-group col-md-6">
+                <label for="loginPassword">Wachtwoord</label>
+                <input type="password" id="loginPassword" class="form-control" name="loginPassword" required/>
+            </div>
+            <button type="submit" class="btnLogin" name='login' value="login" style="margin-top: 20px;">
+                <i></i> Inloggen
+            </button>
+           
+        </div>
+    </form>
+</body>
     </html>

@@ -4,8 +4,6 @@ body{
     padding: 0;
     background-color: #fff;
     font-family: quicksand;
-
-    
 }
 
 p{
@@ -63,4 +61,15 @@ button{
     margin-bottom: 10px;
     justify-content: center;
 }
-   
+#parrent-functies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    padding: 0px;
+    margin: 50px;
+}
+#updateselect{
+    width: 100px;
+}

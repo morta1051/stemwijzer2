@@ -21,6 +21,11 @@ body {
     color: black;
     border: 3px solid black;
 }
+.nieuwsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .nieuws-container {
     display: flex;
     flex-direction: column;
@@ -36,32 +41,15 @@ body {
     list-style: none;
     text-decoration: none;
     color: black;
+    column-gap: 20px;
 }
 .link{
     display: none;
 }
-/* 
-.nieuws-item a {
-    color: black; 
-    text-decoration: none; 
-} */
-
-/* .nieuws-item:hover {
-    background-color: #2B2D42;
-    color: white;
-} */
-
-/* .nieuws-item:hover a {
-    color: white; /
-} */
 
 .nieuws-item h3 {
     margin-top: 0;
 }
-
-/* .Linktext:hover {
-    color: white;
-} */
 
 .titeltext {
     background-color: white;

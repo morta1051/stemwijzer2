@@ -155,6 +155,7 @@ final class dbHandler
 }
 
 
+
     public function selectStellingen()
     {
         try {

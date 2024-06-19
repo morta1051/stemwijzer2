@@ -92,6 +92,7 @@
     ?>
     </div>
 
+    <div id="parrent-functies">
     <div class="add-partij-container">
         <h2>partijen toevoegen</h2>
         <form method="POST">
@@ -133,7 +134,7 @@
     <div class="update-standpunt-container">
         <h2>standpunt updaten</h2>
         <form method="POST">
-            <select name="partijID" required>
+            <select id="updateselect" name="partijID" required>
                 <?php foreach ($dbHandler->selectPartijen() as $partij) {
                     echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
                 } ?>
@@ -164,6 +165,7 @@
             </select>
             <input type="submit" value="Delete" name="DeleteStandpunt">
         </form>
+    </div>
     </div>
 </div>
 </div>
