@@ -1,5 +1,5 @@
 <?php
-include 'ChackLogin.php';
+require 'CheckLoginGB.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ include 'ChackLogin.php';
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <form method="post">
-            <button type="submit" class="" name="logout">uitloggen</button>
+            <button type="submit" class="" name="logout">Uitloggen</button>
         </form>
     </ul>
 </nav>

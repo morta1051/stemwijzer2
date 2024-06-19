@@ -32,7 +32,7 @@ include_once "CheckLoginBE.php";
         <li><a  href="beheernieuws.php">Nieuws</a></li>
         <li><a class="active" href="beheerstellingen.php">Stellingen</a></li>
         <form method="post">
-            <button type="submit" name="logout">uit loggen</button>
+            <button type="submit" name="logout">uitloggen</button>
         </form>
     </ul>
 </nav>
