@@ -89,7 +89,7 @@ include_once "CheckLoginBE.php";
         echo "<p><strong>Datum:</strong> " . ($row["datum"]) . "</p>";
         echo "<p>" . ($row["inhoud"]) . "</p>";
         echo  "<form method='get' action='beheernieuws.php'>";
-        echo  "<input type='hidden' name='delete' value='" . $row["id"] . "'>";
+        echo  "<input type='hidden' name='delete' value='" . $row["nieuwsid"] . "'>";
         echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
         echo "</form>";
         echo "</div>";

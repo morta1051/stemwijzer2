@@ -108,8 +108,8 @@ final class dbHandler
     {
         try {
             $pdo = new PDO($this->dataSource, $this->username, $this->password);
-            $statement = $pdo->prepare("DELETE FROM nieuws WHERE id = :id");
-            $statement->bindParam(":id", $nieuwsID);
+            $statement = $pdo->prepare("DELETE FROM nieuws WHERE nieuwsid = :nieuwsid");
+            $statement->bindParam(":nieuwsid", $nieuwsID);
             $statement->execute();
             return true;
         } catch(PDOException $exception) {
@@ -138,7 +138,7 @@ final class dbHandler
     try {
         $pdo = new PDO($this->dataSource, $this->username, $this->password);
         $statement = $pdo->prepare(
-            "UPDATE nieuws SET titel = :titel, link = :link, inhoud = :inhoud, partij = :partij, datum = :datum WHERE id = :id"
+            "UPDATE nieuws SET titel = :titel, link = :link, inhoud = :inhoud, partij = :partij, datum = :datum WHERE nieuwsid = :nieuwsid"
         );
         $statement->bindParam(':titel', $titel);
         $statement->bindParam(':link', $link);
