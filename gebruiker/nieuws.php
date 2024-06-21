@@ -50,7 +50,7 @@ require 'CheckLoginGB.php';
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["comment"])) {
             $nieuws_id = $_POST["nieuws_id"];
             $comment = $_POST["comment"];
-            $insert_sql = "INSERT INTO comments (nieuws_id, comment) VALUES (?, ?)";
+            $insert_sql = "INSERT INTO comments (nieuwsid, comment) VALUES (?, ?)";
             $stmt = $conn->prepare($insert_sql);
             $stmt->bind_param("is", $nieuws_id, $comment);
 
@@ -62,7 +62,7 @@ require 'CheckLoginGB.php';
             }
         }
 
-        $sql = "SELECT id, titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
+        $sql = "SELECT nieuwsid, titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -76,8 +76,8 @@ require 'CheckLoginGB.php';
                 echo "</a>";
 
 
-                $news_id = $row['id'];
-                $comment_sql = "SELECT comment FROM comments WHERE nieuws_id = ?";
+                $news_id = $row['nieuwsid'];
+                $comment_sql = "SELECT comment FROM comments WHERE nieuwsid = ?";
                 $stmt = $conn->prepare($comment_sql);
                 $stmt->bind_param("i", $news_id);
                 $stmt->execute();
@@ -92,7 +92,7 @@ require 'CheckLoginGB.php';
                 }
 
                 echo "<form action='nieuws.php' method='post'>";
-                echo "<input type='hidden' name='nieuws_id' value='" . $row['id'] . "'>";
+                echo "<input type='hidden' name='nieuws_id' value='" . $row['nieuwsid'] . "'>";
                 echo "<textarea name='comment' rows='4' cols='50'></textarea><br>";
                 echo "<input type='submit' value='Post Comment'>";
                 echo "</form>";
