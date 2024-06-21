@@ -12,12 +12,13 @@ include_once "CheckLoginBE.php";
     <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/beheerhome.css">
     <title>beheerder</title>
 </head>
 <body>
 
 <header>
-    <a id="logo" href="beheerindex.php">
+    <a id="logo" href="beheerhome.php">
       <img id="logo" src="../img\logo-met-text-rechts.svg" width="200px" alt=" Logo">
     </a>
 </header>
@@ -34,8 +35,11 @@ include_once "CheckLoginBE.php";
     
 
 </nav>
-<div class="background-image"></div>
-<h2>Welcome, <?php echo ($username); ?>!</h2>
+<div class="BeheerContainer">
+<h2 id="WelcomeBeheer" >Welcome, <?php echo ($username); ?>!</h2>
+<img src >
+</div>
+
 
 </body>
 </html>

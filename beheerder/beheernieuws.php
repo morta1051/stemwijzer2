@@ -20,14 +20,14 @@ include_once "CheckLoginBE.php";
     
 
 <header>
-    <a id="logo" href="beheerlogin.php">
+    <a id="logo" href="beheerhome.php">
       <img id="logo" src="../img\logo-met-text-rechts.svg" width="200px" alt="Logo">
     </a>
 </header>
 
 <nav>
     <ul>
-        <li><a href="beheerlogin.php">Home</a></li>
+        <li><a href="beheerhome.php">Home</a></li>
         <li><a href="partijenbeheer.php">Partijen</a></li>
         <li><a class="active" href="beheernieuws.php">Nieuws</a></li>
         <li><a href="beheerstellingen.php">Stellingen</a></li>

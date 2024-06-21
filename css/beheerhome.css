@@ -1,0 +1,27 @@
+body{
+    background-image: url("../img/stebackgroundimg.jpg");
+    background-size: cover; 
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: auto;
+    background-size: 100%;
+}
+.BeheerContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+
+
+}
+#WelcomeBeheer{
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}

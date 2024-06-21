@@ -3,7 +3,7 @@
     require '../dbhandler.php';
 
     if (isset($_SESSION['username'])) {
-        header("Location: beheerlogin.php");
+        header("Location: beheerhome.php");
         exit();
     }
 
@@ -15,7 +15,7 @@
 
         if ($dbHandler->validatebeheer($username, $password)) {
             $_SESSION['username'] = $username;
-            header("Location: beheerlogin.php");
+            header("Location: beheerhome.php");
             exit();
         } else {
             echo "Invalid username or password.";
