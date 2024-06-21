@@ -86,6 +86,8 @@ require 'CheckLoginGB.php';
                 if ($comment_result->num_rows > 0) {
                     while ($comment_row = $comment_result->fetch_assoc()) {
                         echo "<p class='commentText'><strong>Comment:</strong> " . $comment_row["comment"] . "</p>";
+                        echo '<button type="button" value="Edit">Edit</button>';
+                        echo '<button type="button" value="Delete">Delete</button>';
                     }
                 }
 

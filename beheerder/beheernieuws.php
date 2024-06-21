@@ -93,6 +93,7 @@ include_once "CheckLoginBE.php";
         echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
         echo "</form>";
         echo "</div>";
+        
     }
     ?>
     </div>
