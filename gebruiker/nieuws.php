@@ -47,21 +47,6 @@ require 'CheckLoginGB.php';
         }
 
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["comment"])) {
-            $nieuws_id = $_POST["nieuws_id"];
-            $comment = $_POST["comment"];
-            $insert_sql = "INSERT INTO comments (nieuwsid, comment) VALUES (?, ?)";
-            $stmt = $conn->prepare($insert_sql);
-            $stmt->bind_param("is", $nieuws_id, $comment);
-
-            if ($stmt->execute()) {
-                header("Location: nieuws.php");
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
-        }
-
         $sql = "SELECT nieuwsid, titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
         $result = $conn->query($sql);
 
@@ -77,7 +62,7 @@ require 'CheckLoginGB.php';
 
 
                 $news_id = $row['nieuwsid'];
-                $comment_sql = "SELECT comment FROM comments WHERE nieuwsid = ?";
+                $comment_sql = "SELECT comment FROM comments WHERE id = ?";
                 $stmt = $conn->prepare($comment_sql);
                 $stmt->bind_param("i", $news_id);
                 $stmt->execute();
