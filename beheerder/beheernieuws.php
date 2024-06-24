@@ -37,33 +37,37 @@ include_once "CheckLoginBE.php";
     </ul>
 </nav>
 <?php     
-        include_once "../dbhandler.php";
-        $dbHandler = new dbHandler();
+include_once "../dbhandler.php";
+$dbHandler = new dbHandler();
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $titel = $_POST['titel'];
-            $link = $_POST['link'];
-            $inhoud = $_POST['inhoud'];
-            $partij = $_POST['partij'];
-            $datum = $_POST['datum'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $titel = $_POST['titel'];
+    $link = $_POST['link'];
+    $inhoud = $_POST['inhoud'];
+    $partij = $_POST['partij'];
+    $datum = $_POST['datum'];
 
-            if ($dbHandler->addNieuws($titel, $link, $inhoud, $partij, $datum)) {
-                echo "<p>Nieuwsbericht toegevoegd.</p>";
-            } else {
-                echo "<p>Toeveogen van nieuwsbericht is niet gelukt</p>";
-            }
-        }
+    if ($dbHandler->addNieuws($titel, $link, $inhoud, $partij, $datum)) {
+        echo "<p>Nieuwsbericht toegevoegd.</p>";
+        header("Location: beheernieuws.php");
+        exit();
+    } else {
+        echo "<p>Toeveogen van nieuwsbericht is niet gelukt</p>";
+    }
+}
 
-        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
-            $id = $_GET['delete'];
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
+    $id = $_GET['delete'];
 
-            if ($dbHandler->deleteNieuws($id)) {
-                echo "<p>Nieuwsbericht succesvol verwijderd.</p>";
-            } else {
-                echo "<p>Er is een fout opgetreden bij het verwijderen van het nieuwsbericht.</p>";
-            }
-        }
-    ?>
+    if ($dbHandler->deleteNieuws($id)) {
+        echo "<p>Nieuwsbericht succesvol verwijderd.</p>";
+        header("Location: beheernieuws.php");
+        exit();
+    } else {
+        echo "<p>Er is een fout opgetreden bij het verwijderen van het nieuwsbericht.</p>";
+    }
+}
+?>
 <main class="mainclass">
     <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
     <form action="beheernieuws.php" method="post">
@@ -81,6 +85,7 @@ include_once "CheckLoginBE.php";
         <button type="submit">Toevoegen</button>
     </form>
     <div class="nieuwsContainer">
+        
     <?php
     foreach ($dbHandler->selectNieuws() as $row) {
         echo "<div class='nieuws-item'>";

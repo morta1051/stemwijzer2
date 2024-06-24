@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         header("Location: home.php");
         exit();
     } else {
-        echo "Invalid username or password.";
+        echo "onjuist wachtwoord of gebruikersnaam.";
     }
 }
 ?>
