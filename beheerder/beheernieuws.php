@@ -98,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
         echo "<button type='submit' class='verwijder-button'>Verwijder</button>";
         echo "</form>";
         echo "</div>";
+        
     }
     ?>
     </div>
