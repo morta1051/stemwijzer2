@@ -129,7 +129,7 @@ include_once 'CheckLoginBE.php';
                 echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
             } ?>
         </select>
-        <input type="text" name="standpunt" placeholder="New Standpunt" required>
+        <input type="text" name="standpunt" placeholder="Nieuwe Standpunt" required>
         <input type="text" name="argument" placeholder="Argument" required>
         <input type="submit" value="Update" name="submitUpdateStandpunt">
     </form>

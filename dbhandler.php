@@ -114,16 +114,15 @@ final class dbHandler
         }
     }
     
-    public function addNieuws($titel, $link, $inhoud, $partij, $datum)
+    public function addNieuws($titel, $link, $inhoud)
     {
         try {
             $pdo = new PDO($this->dataSource, $this->username, $this->password);
-            $statement = $pdo->prepare("INSERT INTO nieuws (titel, link, inhoud, partij, datum) VALUES (:titel, :link, :inhoud, :partij, :datum)");
+            $statement = $pdo->prepare("INSERT INTO nieuws (titel, link, inhoud) VALUES (:titel, :link, :inhoud)");
             $statement->bindParam(':titel', $titel);
             $statement->bindParam(':link', $link);
             $statement->bindParam(':inhoud', $inhoud);
-            $statement->bindParam(':partij', $partij);
-            $statement->bindParam(':datum', $datum);
+           
             $statement->execute();
             return true;
         } catch (PDOException $e) {
@@ -131,17 +130,15 @@ final class dbHandler
         }
     }
 
-    public function updateNieuws($id, $titel, $link, $inhoud, $partij, $datum) {
+    public function updateNieuws($id, $titel, $link, $inhoud) {
         $db = $this->connect();
         if ($db) {
             try {
-                $statement = $db->prepare("UPDATE nieuws SET titel = :titel, link = :link, inhoud = :inhoud, partij = :partij, datum = :datum WHERE nieuwsid = :id");
+                $statement = $db->prepare("UPDATE nieuws SET titel = :titel, link = :link, inhoud = :inhoud WHERE nieuwsid = :id");
                 $statement->bindParam(':id', $id);
                 $statement->bindParam(':titel', $titel);
                 $statement->bindParam(':link', $link);
                 $statement->bindParam(':inhoud', $inhoud);
-                $statement->bindParam(':partij', $partij);
-                $statement->bindParam(':datum', $datum);
                 $statement->execute();
                 return true;
             } catch (PDOException $e) {
@@ -164,7 +161,19 @@ final class dbHandler
         } catch(PDOException $exception) {
             return false;
         }
-    }    public function selectStandpunten()
+    }
+    public function  addStelling(){
+        try {
+            $pdo = new PDO($this->dataSource, $this->username, $this->password);
+            $statement = $pdo->prepare("INSERT INTO stellingen (stellingen) VALUES (:stellingen)");
+            $statement->bindParam(':stellingen', $stellingen);
+            $statement->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }    
+    public function selectStandpunten()
     {
         try {
             $pdo = new PDO($this->dataSource, $this->username, $this->password);
@@ -218,7 +227,7 @@ final class dbHandler
         $pdo = $this->connect();
         if ($pdo) {
             $statement = $pdo->prepare("
-                SELECT stellingen.stellingID, stellingen.stellingen, stellingen.naam, partij_standpunten.standpunt, partij_standpunten.argument
+                SELECT stellingen.stellingID, stellingen.stellingen, partij_standpunten.standpunt, partij_standpunten.argument
                 FROM stellingen
                 JOIN partij_standpunten ON stellingen.stellingID = partij_standpunten.stellingID
                 WHERE partij_standpunten.partijID = :partijID
