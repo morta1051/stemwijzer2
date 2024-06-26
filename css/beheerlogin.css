@@ -18,3 +18,9 @@
 .aanmeldText{
     color: #2B2D42;
 }
+h1{
+    display: flex;
+    justify-content: center;
+    color: #2B2D42;
+}
+    
