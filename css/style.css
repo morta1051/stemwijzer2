@@ -7,7 +7,7 @@ body {
 }
 
 p {
-    font-family: quicksand; 
+    font-family: quicksand;
 }
 
 .verkiezingen-container {
@@ -28,11 +28,11 @@ p {
     padding: 150px;
     font-size: x-large;
     border: 1px solid #2B2D42;
-    background-color: #ffffff;  
+    background-color: #ffffff;
     color: #000000;
     flex-direction: column;
     width: 100px;
-    text-decoration: none; 
+    text-decoration: none;
     border-radius: 25px;
     text-align: center;
 }
@@ -69,24 +69,28 @@ button {
 
 #parrent-functies {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
     padding: 0px;
     margin: 50px;
     border-radius: 5px;
-    background-color: #2B2D42;
-    color: white;
-    /* width: 100%; */
+    /* background-color: #2B2D42; */
+    color: rgb(0, 0, 0);
+
 }
 
-#parrent-functies > div {
+#parrent-functies>div {
     flex: 1;
     min-width: 250px;
 }
 
-.add-partij-container, .update-partij-container, .delete-partij-container, .update-standpunt-container, .delete-standpunt-container {
+.add-partij-container,
+.update-partij-container,
+.delete-partij-container,
+.update-standpunt-container,
+.delete-standpunt-container {
     flex: 1;
     min-width: 250px;
     max-width: 400px;
@@ -99,8 +103,8 @@ select {
     margin-bottom: 10px;
 }
 
-input[type="text"], input[type="submit"] {
-    /* width: 100%; */
+input[type="text"],
+input[type="submit"] {
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -178,7 +182,7 @@ body {
     background-color: #1D1F2F;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
     .verkiezingen {
         width: 80px;
@@ -190,8 +194,8 @@ body {
         align-items: stretch;
     }
 
-    #parrent-functies > div {
-        /* width: 100%; */
+    #parrent-functies>div {
+
         max-width: none;
     }
 }

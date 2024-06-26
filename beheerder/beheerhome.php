@@ -13,6 +13,7 @@ include_once "CheckLoginBE.php";
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/beheerhome.css">
+    <link rel="stylesheet" href="../css/home.css">
     <title>beheerder</title>
 </head>
 <body>

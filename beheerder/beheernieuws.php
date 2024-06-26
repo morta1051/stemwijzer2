@@ -41,10 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $titel = $_POST['titel'];
         $link = $_POST['link'];
         $inhoud = $_POST['inhoud'];
-        $partij = $_POST['partij'];
-        $datum = $_POST['datum'];
+      
 
-        if ($dbHandler->updateNieuws($id, $titel, $link, $inhoud, $partij, $datum)) {
+        if ($dbHandler->updateNieuws($id, $titel, $link, $inhoud)) {
             echo "<p>Nieuwsbericht bijgewerkt.</p>";
             header("Location: beheernieuws.php");
             exit();
@@ -55,10 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $titel = $_POST['titel'];
         $link = $_POST['link'];
         $inhoud = $_POST['inhoud'];
-        $partij = $_POST['partij'];
-        $datum = $_POST['datum'];
 
-        if ($dbHandler->addNieuws($titel, $link, $inhoud, $partij, $datum)) {
+        if ($dbHandler->addNieuws($titel, $link, $inhoud)) {
             echo "<p>Nieuwsbericht toegevoegd.</p>";
             header("Location: beheernieuws.php");
             exit();
@@ -93,10 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
             <input type="url" id="link" name="link" required>   
             <label for="inhoud">Inhoud:</label>
             <textarea id="inhoud" name="inhoud" required></textarea>
-            <label for="partij">Partij:</label>
-            <input type="text" id="partij" name="partij" required>
-            <label for="datum">Datum:</label>
-            <input type="date" id="datum" name="datum" required>
             <button type="submit">Toevoegen</button>
         </form>
     </div>

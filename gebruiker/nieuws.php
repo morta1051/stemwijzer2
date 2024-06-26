@@ -35,61 +35,14 @@ require 'CheckLoginGB.php';
 <main class="mainclass">
     <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
     <div  class="nieuws-container">
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "stemwijzer";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Verbinding mislukt: " . $conn->connect_error);
-        }
-
-
-        $sql = "SELECT nieuwsid, titel, link, inhoud, partij, datum FROM nieuws ORDER BY datum DESC";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='nieuws-item'>";
-                echo "<a href='" . $row['link'] . "' class='nieuws-item'>";
-                echo "<h3>" . $row["titel"] . "</h3>";
-                echo "<p><strong>Partij:</strong> " . $row["partij"] . "</p>";
-                echo "<p><strong>Datum:</strong> " . $row["datum"] . "</p>";
-                echo "<p>" . $row["inhoud"] . "</p>";
-                echo "</a>";
-
-
-                $news_id = $row['nieuwsid'];
-                $comment_sql = "SELECT comment FROM comments WHERE id = ?";
-                $stmt = $conn->prepare($comment_sql);
-                $stmt->bind_param("i", $news_id);
-                $stmt->execute();
-                $comment_result = $stmt->get_result();
-
-                if ($comment_result->num_rows > 0) {
-                    while ($comment_row = $comment_result->fetch_assoc()) {
-                        echo "<p class='commentText'><strong>Comment:</strong> " . $comment_row["comment"] . "</p>";
-                        echo '<button type="button" value="Edit">Edit</button>';
-                        echo '<button type="button" value="Delete">Delete</button>';
-                    }
-                }
-
-                echo "<form action='nieuws.php' method='post'>";
-                echo "<input type='hidden' name='nieuws_id' value='" . $row['nieuwsid'] . "'>";
-                echo "<textarea name='comment' rows='4' cols='50'></textarea><br>";
-                echo "<input type='submit' value='Post Comment'>";
-                echo "</form>";
-                echo "</div>";
-
-            }
-        } else {
-            echo "<p>Geen nieuws beschikbaar.</p>";
-        }
-
-        $conn->close();
-        ?>
+    <?php
+    foreach ($dbHandler->selectNieuws() as $row) {
+        echo "<div class='nieuws-item'>";
+        echo "<h3>" . $row["titel"] . "</h3>";
+        echo "<p>" . $row["inhoud"] . "</p>";
+        echo "</div>";
+    }
+    ?>
     </div>
 </main>
 </body>
