@@ -24,7 +24,7 @@ include_once "CheckLoginBE.php";
 </header>
 <nav>
     <ul>
-        <li><a class="active" href="beheerlogin.php">Home</a></li>
+        <li><a class="active" href="beheerhome.php">Home</a></li>
         <li><a href="partijenbeheer.php">Partijen </a></li>
         <li><a href="beheernieuws.php">Nieuws</a></li>
         <li><a href="beheerstellingen.php">Stellingen</a></li> 

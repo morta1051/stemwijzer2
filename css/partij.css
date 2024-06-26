@@ -1,12 +1,13 @@
-body{
+body {
     background-image: url("../img/stebackgroundimg.jpg");
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: repeat-y;
     background-size: auto;
     background-size: 100%;
 }
-.partijSelected{
+
+.partijSelected {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,12 +18,14 @@ body{
     flex-direction: column;
     margin: 50px;
 }
-.titleStelling{
+
+.titleStelling {
     font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .stelling {
     display: flex;
     flex-direction: column;
@@ -35,7 +38,7 @@ body{
     background-color: #EDF2F4;
     color: #000000;
     margin-left: 50px;
-    margin-right: 50px; 
+    margin-right: 50px;
 }
 
 .stelling h4 {

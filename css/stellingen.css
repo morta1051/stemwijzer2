@@ -1,21 +1,23 @@
-.stelling-container {
-    display: flex;
-    flex-direction: column;
-  height: 5px;
-}
 
-.stelling-item {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px  #8D99AE;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-items: center;
-}
 body {
     background-image: url("../img/stebackgroundimg.jpg");
     background-size: cover;
     background-position: center;
+}
+.stelling-container {
+    display: flex;
+    flex-direction: column;
+    height: 5px;
+}
+
+.stelling-item {
+    background: white;
+    /* padding: 20px; */
+    border-radius: 5px;
+    box-shadow: 0 0 10px  #8D99AE;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-items: center;
+    text-align: center;
 }

@@ -1,4 +1,3 @@
-
 <?php
 include_once 'CheckLoginBE.php';
 ?>
@@ -37,145 +36,129 @@ include_once 'CheckLoginBE.php';
         </form>
     </ul>
 </nav>
-
     <?php
-
         if(isset($_POST["submitAdd"])){
             if (isset($_POST["partijNaam"])) {
                 $partijNaam = $_POST["partijNaam"];
                 $dbHandler->addPartij($partijNaam);
                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit;
-                }
+            }
         } elseif (isset($_POST["submitUpdate"])) {
             if(isset($_POST["partijID"]) && isset($_POST["partijNaam"])){
                 $partijID = $_POST["partijID"];
                 $partijNaam = $_POST["partijNaam"];
-                $_POST["submitUpdate"] = false;
                 $dbHandler->updatePartij($partijID, $partijNaam);
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
             }
         } elseif (isset($_POST["submitDelete"])) {
             if(isset($_POST["partijID"])){
                 $partijID = $_POST["partijID"];
-                $_POST["submitDelete"] = false;
                 $dbHandler->deletePartij($partijID);
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
+            }
+        } elseif (isset($_POST["submitUpdateStandpunt"])) {
+            if (isset($_POST["partijID"]) && isset($_POST["stellingID"]) && isset($_POST["standpunt"]) && isset($_POST["argument"])) {
+                $partijID = $_POST["partijID"];
+                $stellingID = $_POST["stellingID"];
+                $standpunt = $_POST["standpunt"];
+                $argument = $_POST["argument"];
+                $dbHandler->updateStandpunt($stellingID, $partijID, $standpunt, $argument);
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
+            }
+        } elseif (isset($_POST["DeleteStandpunt"])) {
+            if (isset($_POST["partijID"]) && isset($_POST["stellingID"])) {
+                $partijID = $_POST["partijID"];
+                $stellingID = $_POST["stellingID"];
+                $dbHandler->deleteStandpunt($stellingID, $partijID);
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit;
             }
         }
     ?>
+</div>
 
-    <div class="verkiezingen-container">
+<div id="parrent-functies">
+<div class="add-partij-container">
+    <h2>partijen toevoegen</h2>
+    <form method="POST">
+        <input type="text" name="partijNaam" placeholder="Partij naam" required>
+        <input type="submit" value="Add" name="submitAdd">
+    </form>
+</div>
+<div class="update-partij-container">
+    <h2>partijen updaten</h2>
+    <form method="POST">
+        <select name="partijID" required>
+            <?php
+            foreach ($dbHandler->selectPartijen() as $partij) {
+                echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
+            }
+            ?>
+        </select>
+        <input type="text" name="partijNaam" placeholder="Nieuwe partij naam" required>
+        <input type="submit" value="Update" name="submitUpdate">
+    </form>
+</div>
+<div class="delete-partij-container">
+    <h2>partijen verwijderen</h2>
+    <form method="POST">
+        <select name="partijID" required>
+            <?php
+            foreach ($dbHandler->selectPartijen() as $partij) {
+                echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" value="Delete" name="submitDelete">
+    </form>
+</div>
+<div class="update-standpunt-container">
+    <h2>standpunt updaten</h2>
+    <form method="POST">
+        <select id="updateselect" name="partijID" required>
+            <?php foreach ($dbHandler->selectPartijen() as $partij) {
+                echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
+            } ?>
+        </select>
+        <select name="stellingID" required>
+            <?php foreach ($dbHandler->selectStellingen() as $stelling) {
+                echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
+            } ?>
+        </select>
+        <input type="text" name="standpunt" placeholder="New Standpunt" required>
+        <input type="text" name="argument" placeholder="Argument" required>
+        <input type="submit" value="Update" name="submitUpdateStandpunt">
+    </form>
+</div>
+<div class="delete-standpunt-container">
+    <h2>standpunt verwijderen</h2>
+    <form method="POST">
+        <select name="partijID" required>
+            <?php foreach ($dbHandler->selectPartijen() as $partij) {
+                echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
+            } ?>
+        </select>
+        <select name="stellingID" required>
+            <?php foreach ($dbHandler->selectStellingen() as $stelling) {
+                echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
+            } ?>
+        </select>
+        <input type="submit" value="Delete" name="DeleteStandpunt">
+    </form>
+</div>
+</div>
+<div class="verkiezingen-container">
     <?php
-
     foreach ($dbHandler->selectPartijen() as $partij) {
         echo "<a href='beheerstandpunt.php?id=" . $partij["partijID"] . "' class='verkiezingen'>"; 
         echo "<p>" . $partij["partijen"] . "</p>";
         echo "</a>";
-    }   
-    if (isset($_POST["submitUpdateStandpunt"])) {
-        if (isset($_POST["partijID"]) && isset($_POST["stellingID"]) && isset($_POST["standpunt"]) && isset($_POST["argument"])) {
-            $partijID = $_POST["partijID"];
-            $stellingID = $_POST["stellingID"];
-            $standpunt = $_POST["standpunt"];
-            $argument = $_POST["argument"];
-
-            $dbHandler->updateStandpunt($stellingID, $partijID, $standpunt, $argument);
-
-            header("Location: " . $_SERVER['PHP_SELF']);
-            exit;
-        }
     }
-    if (isset($_POST["DeleteStandpunt"])) {
-        if (isset($_POST["partijID"]) && isset($_POST["stellingID"])) {
-            $partijID = $_POST["partijID"];
-            $stellingID = $_POST["stellingID"];
-
-            $dbHandler->deleteStandpunt($stellingID, $partijID);
-
-            header("Location: " . $_SERVER['PHP_SELF']);
-            exit;
-        }
-    }
-
     ?>
-    </div>
-
-    <div id="parrent-functies">
-    <div class="add-partij-container">
-        <h2>partijen toevoegen</h2>
-        <form method="POST">
-            <input type="text" name="partijNaam" placeholder="Partij naam" required>
-            <input type="submit" value="Add" name="submitAdd">
-        </form>
-    </div>
- 
-    <div class="update-partij-container">
-        <h2>partijen updaten</h2>
-        <form method="POST">
-            <select name="partijID" required>
-                <?php
-                foreach ($dbHandler->selectPartijen() as $partij) {
-                    echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
-                }
-                ?>
-            </select>
-            <input type="text" name="partijNaam" placeholder="Nieuwe partij naam" required>
-            <input type="submit" value="Update" name="submitUpdate">
-        </form>
-    </div>
-    
-    <div class="delete-partij-container">
-        <h2>partijen verwijderen</h2>
-        <form method="POST">
-            <select name="partijID" required>
-                <?php
-                foreach ($dbHandler->selectPartijen() as $partij) {
-                    echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
-                }
-                ?>
-            </select>
-            <input type="submit" value="Delete" name="submitDelete">
-        </form>
-    </div>
-
-    
-    <div class="update-standpunt-container">
-        <h2>standpunt updaten</h2>
-        <form method="POST">
-            <select id="updateselect" name="partijID" required>
-                <?php foreach ($dbHandler->selectPartijen() as $partij) {
-                    echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
-                } ?>
-            </select>
-            <select name="stellingID" required>
-                <?php foreach ($dbHandler->selectStellingen() as $stelling) {
-                    echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
-                } ?>
-            </select>
-            <input type="text" name="standpunt" placeholder="New Standpunt" required>
-            <input type="text" name="argument" placeholder="Argument" required>
-            <input type="submit" value="Update" name="DeleteStandpunt">
-        </form>
-    </div>
-
-    <div class="delete-standpunt-container">
-        <h2> Standpunt Verwijderen </h2>
-        <form method="POST">
-            <select name="partijID" required>
-                <?php foreach ($dbHandler->selectPartijen() as $partij) {
-                    echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
-                } ?>
-            </select>
-            <select name="stellingID" required>
-                <?php foreach ($dbHandler->selectStellingen() as $stelling) {
-                    echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
-                } ?>
-            </select>
-            <input type="submit" value="Delete" name="DeleteStandpunt">
-        </form>
-    </div>
-    </div>
 </div>
-</div>
-
 </body>
 </html>

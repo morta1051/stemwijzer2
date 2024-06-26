@@ -1,5 +1,5 @@
 body {
-    font-family: quicksand;
+    font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("../img/stebackgroundimg.jpg");
@@ -10,7 +10,8 @@ body {
 .mainclass {
     padding: 20px;
 }
-.commentText{
+
+.commentText {
     background: white;
     padding: 20px;
     border-radius: 5px;
@@ -21,35 +22,58 @@ body {
     color: black;
     border: 3px solid black;
 }
-.nieuwsContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.nieuws-container {
+
+.nieuwsContainer {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .nieuws-item {
-    background: white;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: #2B2D42;
+    color: white;
     border-radius: 5px;
-    transition: 1s; 
+    padding: 30px;
     text-align: center;
     list-style: none;
     text-decoration: none;
-    color: black;
-    column-gap: 20px;
-}
-.link{
-    display: none;
+    background: white;
+    color: black; 
+    transition: 1s; 
 }
 
 .nieuws-item h3 {
     margin-top: 0;
+}
+
+.nieuws-item form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nieuws-item form label {
+    margin-top: 10px;
+}
+
+.nieuws-item form input,
+.nieuws-item form textarea,
+.nieuws-item form button {
+    display: block;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+
+}
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.link {
+    display: none;
 }
 
 .titeltext {
@@ -59,4 +83,46 @@ body {
     border-radius: 5px;
     box-shadow: #8D99AE 5px 5px 5px;
     text-align: center;
+}
+
+#AddForm {
+    background-color: white;
+    color: black;
+    border-radius: 5px; 
+    padding: 30px;
+    text-align: center;
+}
+
+
+#AddForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#AddForm form label {
+    margin-top: 10px;
+}
+
+#AddForm form input,
+#AddForm form textarea,
+#AddForm form button {
+    display: block;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+
+}
+#AddForm form button{
+    background-color: rgb(8, 203, 92);
+    color: rgb(255, 255, 255);
+}
+
+.verwijder-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }

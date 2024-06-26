@@ -1,24 +1,25 @@
-
-body{
+/* style.css */
+body {
     margin: 0;
     padding: 0;
     background-color: #fff;
     font-family: quicksand;
 }
 
-p{
-   font-family: quicksand; 
+p {
+    font-family: quicksand; 
 }
 
-.verkiezingen-container{
+.verkiezingen-container {
     display: flex;
     justify-content: center;
-    align-items: last baseline;
+    align-items: flex-start;
     flex-wrap: wrap;
     margin: 25px;
     column-gap: 20px;
     gap: 25px;
 }
+
 .verkiezingen {
     display: flex;
     justify-content: center;
@@ -32,12 +33,15 @@ p{
     flex-direction: column;
     width: 100px;
     text-decoration: none; 
-    border-radius: 25px
+    border-radius: 25px;
+    text-align: center;
 }
-.verkiezingen a{
+
+.verkiezingen a {
     text-decoration: none;
 }
-.verkiezingen:hover{
+
+.verkiezingen:hover {
     background-color: #2B2D42;
     color: #fff;
     box-shadow: #8D99AE 5px 5px 5px;
@@ -45,12 +49,13 @@ p{
     transition: 0.3s;
 }
 
-.InfoText{
+.InfoText {
     border: #2B2D42 solid 2px;
     border-radius: 15px;
     justify-content: center;
 }
-button{
+
+button {
     background-color: #2B2D42;
     color: #fff;
     border: none;
@@ -61,15 +66,132 @@ button{
     margin-bottom: 10px;
     justify-content: center;
 }
-#parrent-functies{
+
+#parrent-functies {
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0px;
+    margin: 50px;
+    border-radius: 5px;
+    background-color: #2B2D42;
+    color: white;
+    /* width: 100%; */
+}
+
+#parrent-functies > div {
+    flex: 1;
+    min-width: 250px;
+}
+
+.add-partij-container, .update-partij-container, .delete-partij-container, .update-standpunt-container, .delete-standpunt-container {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+    margin: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="submit"] {
+    /* width: 100%; */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* partij.css */
+body {
+    background-image: url("../img/stebackgroundimg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: auto;
+    background-size: 100%;
+}
+
+.partijSelected {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    column-gap: 20px;
-    padding: 0px;
+    font-size: 20px;
+    border: 1px solid #2B2D42;
+    background-color: #EDF2F4;
+    color: #000000;
+    flex-direction: column;
     margin: 50px;
 }
-#updateselect{
-    width: 100px;
+
+.titleStelling {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stelling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #2B2D42;
+    background-color: #EDF2F4;
+    color: #000000;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.stelling h4 {
+    margin-bottom: 10px;
+}
+
+.stelling p {
+    margin-bottom: 20px;
+}
+
+.stelling .stemmen {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.stelling .eens,
+.stelling .oneens {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #2B2D42;
+    color: #EDF2F4;
+    cursor: pointer;
+}
+
+.stelling .eens:hover,
+.stelling .oneens:hover {
+    background-color: #1D1F2F;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .verkiezingen {
+        width: 80px;
+        padding: 100px;
+    }
+
+    #parrent-functies {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #parrent-functies > div {
+        /* width: 100%; */
+        max-width: none;
+    }
 }
