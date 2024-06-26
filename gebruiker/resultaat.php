@@ -36,7 +36,7 @@ require 'CheckLoginGB.php';
 <?php
     include_once "../dbhandler.php";
     $dbHandler = new dbHandler();
-    $resultaten =[];
+    $resultaten = [];
     foreach ($dbHandler->stemwijzerResultaat() as $partijstandpunt) {
         $partijID = $partijstandpunt["partijID"];
         $stellingID = $partijstandpunt["stellingID"];
@@ -50,11 +50,11 @@ require 'CheckLoginGB.php';
                 break;
             }
         }
-    
+
         if (!$found) {
             $resultaten[] = (object) ['partijId' => $partijID, "aantalEens" => 0];
         }
-        
+
         $gebruikerEens = FALSE;
 
         if (isset($_POST[$stellingID]) && $_POST[$stellingID] == 'eens') {
@@ -77,11 +77,11 @@ require 'CheckLoginGB.php';
     $topResultaten = array_slice($resultaten, 0, 3);
 ?>
 <main>
-<h2 class="ResultaatText">Hier zijn de resultaten van de stemwijzer</h2>
+<h2 class="ResultaatTitel">Hier zijn de resultaten van de stemwijzer</h2>
 <?php
-foreach ($resultaten as $resultaat) {
-   $partij = $dbHandler->getPartyById($resultaat->partijId);
-    echo "<p class='ResultaatText'>Partij " . $partij['partijen'] . " is het eens met " . $resultaat->aantalEens . " standpunten</p>";
+foreach ($topResultaten as $resultaat) {
+    $partij = $dbHandler->getPartyById($resultaat->partijId);
+    echo "<p class='ResultaatText'>Partij " . htmlspecialchars($partij['partijen'], ENT_QUOTES, 'UTF-8') . " is het eens met " . htmlspecialchars($resultaat->aantalEens, ENT_QUOTES, 'UTF-8') . " standpunten</p>";
 }
 ?>
 </main>

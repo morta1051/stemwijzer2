@@ -3,9 +3,25 @@ body {
     background-size: cover;
     background-position: center;
 }
-.ResultaatText{
+.ResultaatTitel{
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
+}
+.ResultaatText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bold;
+    border: 1px solid #2B2D42;
+    background-color: #EDF2F4;
+    color: #000000;
+    flex-direction: column;
+    margin: 30px auto;
+    padding: 15px;
+    border-radius: 15px;
+    height: 10vh;
+    max-width: 100vh;
 }
 .AntwoordText{
 text-align: center;

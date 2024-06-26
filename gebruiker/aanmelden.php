@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/aanmelden.css">
+    <link rel="stylesheet" href="../css/aanmelden.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
@@ -36,8 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link rel="icon" type="image/x-icon" href="../img/logo-neutraal-kieslab-lichtblauw.svg">
     <title>Aanmelden</title>
 </head>
-<body>  
+<body class="bclg">  
     <form method='post' action='aanmelden.php'> 
+    <h1> Maak een account aan</h1>
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="registerUsername">Gebruikersnaam</label>
@@ -47,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                 <label for="registerPassword">Wachtwoord</label>
                 <input type="password" id="registerPassword" class="form-control" name="registerPassword" required/>
             </div>
-            <button type="submit" class="btn btn-primary col-md-2" name='register' value="register" style="margin-top: 20px;">
+            <button type="submit" class="btnAanmeld" name='register' value="register" style="margin-top: 20px;">
                 <i class="fa fa-user-plus"></i> Aanmelden
             </button>
             <p>Heb je al een account? <a href="index.php">Login</a></p>

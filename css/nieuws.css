@@ -11,18 +11,6 @@ body {
     padding: 20px;
 }
 
-.commentText {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    transition: 1s; 
-    text-align: center;
-    list-style: none;
-    text-decoration: none;
-    color: black;
-    border: 3px solid black;
-}
-
 .nieuwsContainer {
     display: flex;
     flex-direction: column;
@@ -33,7 +21,7 @@ body {
     background-color: #2B2D42;
     color: white;
     border-radius: 5px;
-    padding: 30px;
+    padding: 10px;
     text-align: center;
     list-style: none;
     text-decoration: none;

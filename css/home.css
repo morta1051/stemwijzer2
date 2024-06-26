@@ -28,6 +28,8 @@ body {
     font-weight: bold;
     margin: 10px;
     background-color: #EDF2F4;
+    color: #2B2D42;
+    text-align: justify;
 }
 
 .knopText {
@@ -66,4 +68,7 @@ body {
 }
 .InfoText p {
 margin: 10px;
+}
+.welkomtext{
+font-size: x-large;
 }

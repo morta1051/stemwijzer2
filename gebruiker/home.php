@@ -22,7 +22,7 @@ require 'CheckLoginGB.php';
       <img id="logo" src="../img/logo-met-text-rechts.svg" width="200px" alt="Logo">
     </a>
 </header>
-<nav>
+<nav class="nav">
     <ul>
         
         <li><a class="active" href="index.php">Home</a></li>
@@ -39,7 +39,7 @@ require 'CheckLoginGB.php';
 
 <main class="container">
     <div class="InfoText">
-        <p>Welkom <?php echo ($username); ?> bij StemWijzer.nl!</p>
+        <p class="welkomtext">Welkom <?php echo ($username); ?> bij StemWijzer.nl!</p>
         <p>We zijn hier om jou te begeleiden bij het maken van een beslissing over wie je wilt steunen tijdens verkiezingen.</p>
         <p>StemWijzer.nl is ontwikkeld door een team van mensen die veel kennis hebben van politiek en technologie.</p>
         <p>We hebben een handige website gemaakt die jouw standpunten vergelijkt met die van verschillende politieke partijen.</p>

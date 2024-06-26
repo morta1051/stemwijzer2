@@ -39,16 +39,20 @@ $dbHandler = new dbHandler();
 </nav>
 <div class="Welkomtext">Welkom op de stemwijzer!</div>
 <form action="resultaat.php" method="post">
+<div class="center-container">
 <div class="Stemwijzer">
 <?php
 foreach ($dbHandler->selectStellingen() as $partij) {
    echo "<p class='StellingenStemwijzer'>" . $partij["stellingen"] . "</p>
-   <label><input type='radio' required name='". $partij["stellingID"]."' value='eens'/> eens </label>
-   <label><input type='radio' required name='". $partij["stellingID"]."' value='oneens'/> oneens</label>";
+   <div class='radiobt'>
+      <label><input type='radio' required name='". $partij["stellingID"]."' value='eens'/> eens </label>
+      <label><input type='radio' required name='". $partij["stellingID"]."' value='oneens'/> oneens</label>
+   </div>";
 }
 ?>
 </div>
 <button id="ResultaatKnop" class="button1" type="submit">Krijg uw resultaat</button>
+</div>
 </form>
 </body>
 </html>

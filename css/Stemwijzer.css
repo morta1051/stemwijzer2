@@ -1,27 +1,57 @@
-.Welkomtext{
+.Welkomtext {
     font-size: xx-large;
     font-weight: bolder;
     text-align: center;
     margin-top: 20px;
 }
-.StellingenStemwijzer
-{
-    align-self: center;
-    align-items: center;
-    justify-content: center;
+
+.StellingenStemwijzer {
+    text-align: center;
     font-weight: bold;
-    margin-left: 10px;
-    gap: 15px;
+    font-size: x-large;
+    margin: 15px 0; /* Updated to center content within flex container */
+    background-color: #ffff;
+    color:#2B2D42 ;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
 }
-.Stemwijzer{
+
+/* Container to center content */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Style for radio button labels */
+.radiobt {
+    display: flex;
+    justify-content: center; /* Centers radio buttons horizontally */
+    align-items: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.Stemwijzer {
     margin-bottom: 15px;
 }
-.button1{
-    align-items: center;
+
+.button1 {
+    display: block;
+    margin: 20px auto; /* Centers button */
     background-color: #2B2D42;
     color: aliceblue;
     cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
 }
-.button1:hover{
-    background-color:  #8D99AE;
+
+.button1:hover {
+    background-color: #8D99AE;
 }
