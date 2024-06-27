@@ -63,7 +63,6 @@ require 'CheckLoginGB.php';
                 if ($stellingen) {
                     foreach ($stellingen as $stelling) {
                         echo "<div class='stelling'>";
-                        // echo "<h1>verkiezing: " . $stelling["naam"] . "</p\h1s>";
                         echo "<h4>" . $stelling["stellingID"] . "</h4>";
                         echo "<p>Stelling: " . $stelling["stellingen"] . "</p>";
                         echo "<div class='standpunt'>";
@@ -73,16 +72,16 @@ require 'CheckLoginGB.php';
                         echo "</div>";
                     }
                 } else {
-                    echo "No standpunten found for this party.";
+                    echo "Geen standpunten gevonden voor deze partij.";
                 }
                 ?>
             </div>
             <?php
         } else {
-            echo "Party not found.";
+            echo "Partij niet gevonden.";
         }
     } else {
-        echo "No party ID provided.";
+        echo "Geen partij geselecteerd.";
     }
     ?>
     </div>

@@ -90,6 +90,7 @@ include_once 'CheckLoginBE.php';
         <input type="submit" value="Add" name="submitAdd">
     </form>
 </div>
+
 <div class="update-partij-container">
     <h2>partijen updaten</h2>
     <form method="POST">
@@ -104,6 +105,7 @@ include_once 'CheckLoginBE.php';
         <input type="submit" value="Update" name="submitUpdate">
     </form>
 </div>
+
 <div class="delete-partij-container">
     <h2>partijen verwijderen</h2>
     <form method="POST">
@@ -117,6 +119,7 @@ include_once 'CheckLoginBE.php';
         <input type="submit" value="Delete" name="submitDelete">
     </form>
 </div>
+
 <div class="update-standpunt-container">
     <h2>standpunt updaten</h2>
     <form method="POST">
@@ -137,21 +140,25 @@ include_once 'CheckLoginBE.php';
 </div>
 <div class="delete-standpunt-container">
     <h2>standpunt verwijderen</h2>
+
     <form method="POST">
         <select name="partijID" required>
             <?php foreach ($dbHandler->selectPartijen() as $partij) {
                 echo "<option value='" . $partij["partijID"] . "'>" . $partij["partijen"] . "</option>";
             } ?>
         </select>
+
         <select name="stellingID" required>
             <?php foreach ($dbHandler->selectStellingen() as $stelling) {
                 echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
             } ?>
         </select>
         <input type="submit" value="Delete" name="DeleteStandpunt">
+
     </form>
 </div>
 </div>
+
 <div class="verkiezingen-container">
     <?php
     foreach ($dbHandler->selectPartijen() as $partij) {

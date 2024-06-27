@@ -240,6 +240,7 @@ final class dbHandler
             return null;
         }
     }
+   
     public function updateStandpunt($stellingId, $partijId, $standpunt, $argument)
     {
         try {
