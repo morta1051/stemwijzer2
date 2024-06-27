@@ -2,7 +2,7 @@
 require 'CheckLoginGB.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,13 +36,15 @@ require 'CheckLoginGB.php';
     <h2 class="titeltext">Nieuwtjes over Politieke Partijen</h2>
     <div  class="nieuws-container">
     <?php
-    foreach ($dbHandler->selectNieuws() as $row) {
-        echo "<div class='nieuws-item'>";
-        echo "<h3>" . $row["titel"] . "</h3>";
-        echo "<p>" . $row["inhoud"] . "</p>";
-        echo "</div>";
-    }
-    ?>
+        foreach ($dbHandler->selectNieuws() as $row) {
+            echo "<a class='no-link-style' href='" . $row["link"] . "' target='_blank'>";
+            echo "<div class='nieuws-item'>";
+            echo "<h3>" . $row["titel"] . "</h3>";
+            echo "<p>" . $row["inhoud"] . "</p>";
+            echo "</div>";
+        }
+        
+        ?>
     </div>
 </main>
 </body>
