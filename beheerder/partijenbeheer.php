@@ -87,7 +87,7 @@ include_once 'CheckLoginBE.php';
     <h2>partijen toevoegen</h2>
     <form method="POST">
         <input type="text" name="partijNaam" placeholder="Partij naam" required>
-        <input type="submit" value="Add" name="submitAdd">
+        <input type="submit" value="Toevoegen" name="submitAdd">
     </form>
 </div>
 
@@ -102,7 +102,7 @@ include_once 'CheckLoginBE.php';
             ?>
         </select>
         <input type="text" name="partijNaam" placeholder="Nieuwe partij naam" required>
-        <input type="submit" value="Update" name="submitUpdate">
+        <input type="submit" value="Bewerken" name="submitUpdate">
     </form>
 </div>
 
@@ -116,7 +116,7 @@ include_once 'CheckLoginBE.php';
             }
             ?>
         </select>
-        <input type="submit" value="Delete" name="submitDelete">
+        <input type="submit" value="verwijderen" name="submitDelete">
     </form>
 </div>
 
@@ -135,7 +135,7 @@ include_once 'CheckLoginBE.php';
         </select>
         <input type="text" name="standpunt" placeholder="Nieuwe Standpunt" required>
         <input type="text" name="argument" placeholder="Argument" required>
-        <input type="submit" value="Update" name="submitUpdateStandpunt">
+        <input type="submit" value="Bewerken" name="submitUpdateStandpunt">
     </form>
 </div>
 <div class="delete-standpunt-container">
@@ -153,7 +153,7 @@ include_once 'CheckLoginBE.php';
                 echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
             } ?>
         </select>
-        <input type="submit" value="Delete" name="DeleteStandpunt">
+        <input type="submit" value="Verwijderen" name="DeleteStandpunt">
 
     </form>
 </div>
