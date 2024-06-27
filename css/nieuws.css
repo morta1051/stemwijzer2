@@ -28,6 +28,7 @@ body {
     text-decoration: none;
     background: white;
     color: black; 
+    margin: 15px auto;
     transition: 1s; 
 }
 
