@@ -2,7 +2,7 @@
 include_once "CheckLoginBE.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +62,6 @@ include_once "CheckLoginBE.php";
                 if ($stellingen) {
                     foreach ($stellingen as $stelling) {
                         echo "<div class='stelling'>";
-                        echo "<h1>verkiezing: " . $stelling["naam"] . "</p\h1s>";
                         echo "<h4>" . $stelling["stellingID"] . "</h4>";
                         echo "<p>Stelling: " . $stelling["stellingen"] . "</p>";
                         echo "<div class='standpunt'>";

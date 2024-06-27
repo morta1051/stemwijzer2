@@ -24,12 +24,9 @@ body {
     border-radius: 5px;
     padding: 10px;
     text-align: center;
-    list-style: none;
-    text-decoration: none;
-    background: white;
-    color: black; 
-    transition: 1s; 
+    transition: 1s;
 }
+
 
 .nieuws-item h3 {
     margin-top: 0;
@@ -59,10 +56,6 @@ body {
 textarea {
     resize: none;
     height: 100px;
-}
-
-.link {
-    display: none;
 }
 
 .titeltext {
@@ -115,3 +108,9 @@ textarea {
     cursor: pointer;
     margin-top: 10px;
 }
+.no-link-style {
+    text-decoration: none;
+    color: inherit; 
+    display: block;
+}
+
