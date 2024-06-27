@@ -8,7 +8,7 @@
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-        $username = $_POST['loginUsername'];
+        $username = $_POST['gebruikersnaam'];
         $password = $_POST['loginPassword'];
 
         $dbHandler = new dbHandler();
@@ -18,7 +18,7 @@
             header("Location: beheerhome.php");
             exit();
         } else {
-            echo "Invalid username or password.";
+            echo "onjuiste gebruikersnaam of wachtwoord.";
         }
     }
     ?>
@@ -46,8 +46,8 @@
         <div class="row">
         <h1>Beheer login</h1>
             <div class="form-group col-md-6">
-                <label for="loginUsername">Gebruikersnaam</label>
-                <input id="loginUsername" class="form-control" name="loginUsername" required/>
+                <label for="gebruikersnaam">Gebruikersnaam</label>
+                <input id="gebruikersnaam" class="form-control" name="gebruikersnaam" required/>
             </div>
             <div class="form-group col-md-6">
                 <label for="loginPassword">Wachtwoord</label>
