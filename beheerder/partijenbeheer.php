@@ -38,14 +38,14 @@ include_once 'CheckLoginBE.php';
     </ul>
 </nav>
     <?php
-        if(isset($_POST["submitAdd"])){
+        if(isset($_POST["toevoegen"])){
             if (isset($_POST["partijNaam"])) {
                 $partijNaam = $_POST["partijNaam"];
                 $dbHandler->addPartij($partijNaam);
                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit;
             }
-        } elseif (isset($_POST["submitUpdate"])) {
+        } elseif (isset($_POST["bewerken"])) {
             if(isset($_POST["partijID"]) && isset($_POST["partijNaam"])){
                 $partijID = $_POST["partijID"];
                 $partijNaam = $_POST["partijNaam"];
@@ -53,14 +53,14 @@ include_once 'CheckLoginBE.php';
                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit;
             }
-        } elseif (isset($_POST["submitDelete"])) {
+        } elseif (isset($_POST["verwijderen"])) {
             if(isset($_POST["partijID"])){
                 $partijID = $_POST["partijID"];
                 $dbHandler->deletePartij($partijID);
                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit;
             }
-        } elseif (isset($_POST["submitUpdateStandpunt"])) {
+        } elseif (isset($_POST["bewerkStandpunt"])) {
             if (isset($_POST["partijID"]) && isset($_POST["stellingID"]) && isset($_POST["standpunt"]) && isset($_POST["argument"])) {
                 $partijID = $_POST["partijID"];
                 $stellingID = $_POST["stellingID"];
@@ -70,7 +70,7 @@ include_once 'CheckLoginBE.php';
                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit;
             }
-        } elseif (isset($_POST["DeleteStandpunt"])) {
+        } elseif (isset($_POST["verwijderStandpunt"])) {
             if (isset($_POST["partijID"]) && isset($_POST["stellingID"])) {
                 $partijID = $_POST["partijID"];
                 $stellingID = $_POST["stellingID"];
@@ -87,7 +87,7 @@ include_once 'CheckLoginBE.php';
     <h2>partijen toevoegen</h2>
     <form method="POST">
         <input type="text" name="partijNaam" placeholder="Partij naam" required>
-        <input type="submit" value="Add" name="submitAdd">
+        <input type="submit" value="Toevoegen" name="toevoegen">
     </form>
 </div>
 
@@ -102,7 +102,7 @@ include_once 'CheckLoginBE.php';
             ?>
         </select>
         <input type="text" name="partijNaam" placeholder="Nieuwe partij naam" required>
-        <input type="submit" value="Update" name="submitUpdate">
+        <input type="submit" value="Bewerken" name="bewerken">
     </form>
 </div>
 
@@ -116,7 +116,7 @@ include_once 'CheckLoginBE.php';
             }
             ?>
         </select>
-        <input type="submit" value="Delete" name="submitDelete">
+        <input type="submit" value="Verwijderen" name="verwijderen">
     </form>
 </div>
 
@@ -135,7 +135,7 @@ include_once 'CheckLoginBE.php';
         </select>
         <input type="text" name="standpunt" placeholder="Nieuwe Standpunt" required>
         <input type="text" name="argument" placeholder="Argument" required>
-        <input type="submit" value="Update" name="submitUpdateStandpunt">
+        <input type="submit" value="Bewerken" name="bewerkStandpunt">
     </form>
 </div>
 <div class="delete-standpunt-container">
@@ -153,7 +153,7 @@ include_once 'CheckLoginBE.php';
                 echo "<option value='" . $stelling["stellingID"] . "'>" . $stelling["stellingen"] . "</option>";
             } ?>
         </select>
-        <input type="submit" value="Delete" name="DeleteStandpunt">
+        <input type="submit" value="Verwijderen" name="verwijderStandpunt">
 
     </form>
 </div>

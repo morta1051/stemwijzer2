@@ -98,7 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
         echo "<div class='nieuws-item'>";
         echo "<h3>" . $row["titel"] . "</h3>";
         echo "<p>" . $row["inhoud"] . "</p>";
+
         echo "<form method='post' action='beheernieuws.php' class='nieuws-form'>";
+
         echo "<input type='hidden' name='id' value='" . $row["nieuwsid"] . "'>";
         echo "<input type='hidden' name='update' value='true'>";
         echo "<label for='titel'>Titel:</label>";
@@ -109,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete'])) {
         echo "<textarea id='inhoud' name='inhoud' required>" . $row["inhoud"] . "</textarea>";
         echo "<button type='submit'>Bijwerken</button>";
         echo "</form>";
+
         echo "<form method='get' action='beheernieuws.php' class='nieuws-form'>";
         echo "<input type='hidden' name='delete' value='" . $row["nieuwsid"] . "'>";
         echo "<button type='submit' class='verwijder-button'>Verwijder</button>";

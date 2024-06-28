@@ -29,7 +29,7 @@ require 'CheckLoginGB.php';
         <li><a href="nieuws.php">Nieuws</a></li>
         <li><a href="stellingen.php">Stellingen</a></li>
         <form method="post">
-            <button type="submit" class="" name="logout">Uitloggen</button>
+            <button type="submit" class="" name="uitloggen">Uitloggen</button>
         </form>
     </ul>
 </nav>
