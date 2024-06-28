@@ -9,7 +9,7 @@
     text-align: center;
     font-weight: bold;
     font-size: x-large;
-    margin: 15px 0; /* Updated to center content within flex container */
+    margin: 15px 0; 
     background-color: #ffff;
     color:#2B2D42 ;
     border: 2px solid black;
@@ -17,7 +17,7 @@
     padding: 10px;
 }
 
-/* Container to center content */
+
 .center-container {
     display: flex;
     justify-content: center;
@@ -27,12 +27,12 @@
     width: 100%;
 }
 
-/* Style for radio button labels */
 .radiobt {
     display: flex;
-    justify-content: center; /* Centers radio buttons horizontally */
+    justify-content: center;
     align-items: center;
     margin: 10px 0;
+    cursor: pointer;
     font-weight: bold;
 }
 
@@ -42,7 +42,7 @@
 
 .button1 {
     display: block;
-    margin: 20px auto; /* Centers button */
+    margin: 20px auto;
     background-color: #2B2D42;
     color: aliceblue;
     cursor: pointer;
